@@ -17,7 +17,7 @@
 | TBD | Host | |
 | DJ | House Guest | CAP |
 | Josh | House Guest | |
-| Kevin | House Guest  | Appgyver? <just kidding>|
+| Kevin | House Guest  | Appgyver? ...just kidding|
 | Katharina | House Guest  | AI/ML |
 | Marius | House Guest  | UI5 |
 | Rich | House Guest | ABAP |
