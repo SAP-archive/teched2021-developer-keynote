@@ -27,6 +27,6 @@
 | Marius | House Guest  | UI5 |
 | Rich | House Guest | ABAP |
 | Thomas | House Guest  | |
-| Witalij | House Guest | DB & Anayltics |
+| Vitaliy | House Guest | DB & Anayltics |
 
 
