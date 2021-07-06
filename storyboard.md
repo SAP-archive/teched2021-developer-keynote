@@ -1,10 +1,14 @@
 # Introduction
 
+# Open Questions
+
+* What can we do with just the free tier.  Is it realistic that we ONLY use free teir software?
+
 # Concept/Style
 
 * Big Brother:  Group of developers living in a house together, attempting challenges/games, etc.
 
-# Themes
+# Possible Themes
 
 * End-to-End solution?
 * Focus on key features which make developers lives better?
