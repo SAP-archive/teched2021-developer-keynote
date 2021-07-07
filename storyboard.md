@@ -20,13 +20,13 @@
 | --- | ----------- | ----------- |
 | TBD | Narrator | |
 | TBD | Host | |
-| DJ | House Guest | CAP |
-| Josh | House Guest | |
+| DJ | House Guest | CLIs for BTP, SAP Graph, etc |
+| Josh | House Guest | CI/CD and other platform / runtime facilities (e.g. Piper)? |
 | Kevin | House Guest  | Appgyver? ...just kidding|
 | Katharina | House Guest  | AI/ML |
 | Marius | House Guest  | UI5 |
 | Rich | House Guest | ABAP |
-| Thomas | House Guest  | |
+| Thomas | House Guest  | CAP |
 | Vitaliy | House Guest | DB & Anayltics |
 
 
