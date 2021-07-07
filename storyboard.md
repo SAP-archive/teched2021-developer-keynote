@@ -2,11 +2,11 @@
 
 # Open Questions
 
-* What can we do with just the free tier.  Is it realistic that we ONLY use free teir software?
+* What can we do with just the free tier.  Is it realistic that we ONLY use free tier software?
 
 # Concept/Style
 
-* Big Brother:  Group of developers living in a house together, attempting challenges/games, etc.  Confessionals should be part of the show as well.  Opening scenes showing each topic focus getting a key to the hosue?
+* Big Brother:  Group of developers living in a house together, attempting challenges/games, etc.  Confessionals should be part of the show as well.  Opening scenes showing each topic focus getting a key to the house?  HEad of Household, Developer/Code up for eviction, veto competition, reward competition.
 
 # Possible Themes
 
