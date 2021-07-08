@@ -51,4 +51,9 @@ Kings, and Queens.  Each captain now drafts his/her team members based on the BB
 the HOH compedition takes place where the winner and his team are awarded ammunity from eviction for that week. Last place becomes the "have-nots" where they are 
 punished with cold showers, lame food, lame rooms, etc.
 
+This year is different (higher prize of $750k instead of $500k last 22 years). ALso the 4 member teams is a new twist.  It will only last until people voted off make the other teams so small they have to consolidate.  Producers do stuff like this to cause inter-team spying and alliances that may or may not last.  Anyway, a new twist but that is what keeps people interested year after year.  
+
+Some things to think about when watching a clique of like minded people form is how can we poke fun at developers or code in a way that a group of houseguest would poke fun at one another.  We can't cross a line but we can say someone is on team ABAP and they always leave the seat up in the bathroom or don't lock the door to the bathroom, cause they aren't focused on security...  Team Kyma could always be looking to gather support or intel to win a competition because they beliieve in being open and having community involement.  Another code group or indivdual like Appgyver/low code is claiming the kitchen as their space cause they have the best recipes to make meals following simple step by step templates and meals that could be put in a box and mailed to a non-chef.  
+
+
 
