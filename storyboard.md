@@ -40,7 +40,7 @@
 * House Guests play for cash prize
 * Transistions from shot to shot seem to be a lot of "flash" or "starburst"
 
-Show Flow S23E01
+Show Flow S23E01 - Watch [here!](https://www.cbs.com/shows/big_brother/video/Lz8gWBWdDN83XFX9Xm_A7d0tT_iBPPqp/big-brother-episode-1/)
 * First 4 men finds keys to the house during some personal activity at home.  This is followed by a short bio.  Then the first 4 men are shown 
 standing on the stage outside of the house with the host with some short chatting as they enter the house. Once inside the house, they are told
 to go to the "Backyard" for the first challenge.  During this time, each guest breaks off to a short confessional style shot where they are talking
