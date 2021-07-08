@@ -31,7 +31,7 @@
 
 # Research Big Brother 
 
-* No phones, no internet, no comms to outside world. 
+* No phones, no internet, no comms to outside world. (can we play on this aspects - like how can developers possibly code without access to Google Search?) 
 * 16 House Guests(HG)
 * 94 Cameras
 * 100 ish mics
