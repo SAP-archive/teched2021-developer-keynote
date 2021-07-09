@@ -25,11 +25,12 @@
 | Kevin | House Guest  | Appgyver? ...just kidding|
 | Katharina | House Guest  | AI/ML |
 | Marius | House Guest  | UI5 |
+| Michelle | House Guest  | UI5 |
 | Rich | House Guest | ABAP |
 | Thomas | House Guest  | CAP |
 | Vitaliy | House Guest | DB & Anayltics |
 
-# Research Big Brother 
+# Big Brother Research
 
 * No phones, no internet, no comms to outside world. (can we play on this aspects - like how can developers possibly code without access to Google Search?) 
 * 16 House Guests(HG)
