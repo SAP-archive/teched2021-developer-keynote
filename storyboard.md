@@ -25,7 +25,7 @@
 | Kevin | House Guest  | Appgyver? ...just kidding|
 | Katharina | House Guest  | AI/ML |
 | Marius | House Guest  | UI5 |
-| Michelle | House Guest  | UI5 |
+| Michelle | House Guest  | UI Technologies |
 | Rich | House Guest | ABAP |
 | Thomas | House Guest  | CAP |
 | Vitaliy | House Guest | DB & Anayltics |
