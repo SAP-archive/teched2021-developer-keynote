@@ -12,20 +12,20 @@
 
 # Key Players
 
-| Name | Role | Topic Focus |
-| --- | ----------- | ----------- |
-| TBD | Narrator | |
-| TBD | Host | |
-| DJ | House Guest | CLIs for BTP, SAP Graph, etc |
-| Josh | House Guest | CI/CD and other platform / runtime facilities (e.g. Piper)? |
-| Kevin | House Guest  | ? |
-| Katharina | House Guest  | AI/ML |
-| Marius | House Guest  | UI5 |
-| Michelle | House Guest  | UI Technologies |
-| Rich | House Guest | ABAP |
-| Thomas | House Guest  | CAP |
-| Vitaliy | House Guest | DB & Anayltics |
-| ??? | House Guest | Low-Code/No-Code Appgyver |
+| Name | Role | Topic Focus | Demo Description |
+| --- | ----------- | ----------- | ----------- |
+| TBD | Narrator | | |
+| TBD | Host | | |
+| DJ | House Guest | CLIs for BTP, SAP Graph, etc | |
+| Josh | House Guest | CI/CD and other platform / runtime facilities (e.g. Piper)? | |
+| Kevin | House Guest  | ? | |
+| Katharina | House Guest  | AI/ML | |
+| Marius | House Guest  | UI5 | |
+| Michelle | House Guest  | UI Technologies | |
+| Rich | House Guest | ABAP | |
+| Thomas | House Guest  | CAP | |
+| Vitaliy | House Guest | DB & Anayltics | |
+| ??? | House Guest | Low-Code/No-Code Appgyver | |
 
 # Big Brother Research
 
