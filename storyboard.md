@@ -27,6 +27,8 @@
 | Vitaliy | House Guest | DB & Anayltics | |
 | ??? | House Guest | Low-Code/No-Code Appgyver | |
 
+# Script Draft
+
 # Big Brother Research
 
 * No phones, no internet, no comms to outside world. (can we play on this aspects - like how can developers possibly code without access to Google Search?) 
