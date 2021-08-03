@@ -22,7 +22,7 @@
 | Katharina | House Guest  | AI/ML | |
 | Marius | House Guest  | UI5 | |
 | Michelle | House Guest  | UI Technologies | |
-| Rich | House Guest | ABAP | Will showcase "Embedded Steampunk".  First show how to access S4/HANAA data from steampunk using the side car approach.  Then show how to access the same data with a simple SELECT statement leveraging "Embedded Steampunk" within the S4/HANA system |
+| Rich | House Guest | ABAP | Will showcase "Embedded Steampunk".  First show how to access S4/HANA data from steampunk using the side-car approach.  Then show how to access the same data with a simple SELECT statement leveraging "Embedded Steampunk" within the S4/HANA system |
 | Thomas | House Guest  | CAP | |
 | Vitaliy | House Guest | DB & Anayltics | |
 | ??? | House Guest | Low-Code/No-Code Appgyver | |
