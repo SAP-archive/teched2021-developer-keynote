@@ -17,7 +17,7 @@
 | TBD | Narrator | | |
 | TBD | Host | | |
 | DJ | House Guest | CLIs for BTP, SAP Graph, etc | With command line tools from SAP I get to operate in the most powerful and flexible environment - the shell. I can build simple tools to script and automate, and have zero friction between me and what I'm using. SAP's cloud-first approach means all the services I'm using and platforms I'm building on are is there directly at my fingertips via the native environment of cloud - the command line. There's CLI tools for SAP Business Technology Platform, SAP Graph, CAP and more. In addition, show the Cloud Foundry and K8s CLI tools, and do it all in the Business Application Studio terminal.|
-| Josh | House Guest | CI/CD and other platform / runtime facilities (e.g. Piper)? | |
+| Josh | House Guest | CI/CD and other platform / runtime facilities (e.g. Piper)? | A showcase of CI/CD on BT (possibly Piper Blue Ocean).  Setup in the BTP cockpit of a user needing to make an application change.  Show how app is running and connected to Kyma.  Kyma would signal CI/CD when a new push of an application change is made by a developer.  SHow the visualization of a failure and a success if there is time in the 4 minutes. |
 | Kevin | House Guest  | ? | |
 | Katharina | House Guest  | AI/ML | |
 | Marius | House Guest  | UI5 | |
