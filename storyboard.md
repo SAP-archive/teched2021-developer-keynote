@@ -16,7 +16,7 @@
 | --- | ----------- | ----------- | ----------- |
 | TBD | Narrator | | |
 | TBD | Host | | |
-| DJ | House Guest | CLIs for BTP, SAP Graph, etc | |
+| DJ | House Guest | CLIs for BTP, SAP Graph, etc | With command line tools from SAP I get to operate in the most powerful and flexible environment - the shell. I can build simple tools to script and automate, and have zero friction between me and the services I'm using and the platforms I'm building on and deploying too. SAP's cloud-first approach means the the native environment of the cloud - the command line - is there at my fingertips, with CLI tools for SAP Business Technology Platform, SAP Graph, CAP and more. |
 | Josh | House Guest | CI/CD and other platform / runtime facilities (e.g. Piper)? | |
 | Kevin | House Guest  | ? | |
 | Katharina | House Guest  | AI/ML | |
