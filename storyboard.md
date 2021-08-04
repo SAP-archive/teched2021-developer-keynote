@@ -31,8 +31,8 @@
 
 # Big Brother Research
 
-* No phones, no internet, no comms to outside world. (can we play on this aspects - like how can developers possibly code without access to Google Search?) 
-* 16 House Guests(HG) (<-- use the built-in `man` pages on the command line, obvs ;-))
+* No phones, no internet, no comms to outside world. (can we play on this aspects - like how can developers possibly code without access to Google Search?)  (<-- use the built-in `man` pages on the command line, obvs ;-))
+* 16 House Guests(HG)
 * 94 Cameras
 * 100 ish mics
 * Host on stage outside of house, once HGs are in the house, seems like the host stays out and only interacts over voice over.
