@@ -25,7 +25,7 @@
 | Rich | House Guest | ABAP | Will showcase "Embedded Steampunk".  First show how to access S4/HANA data from steampunk using the side-car approach.  Then show how to access the same data with a simple SELECT statement leveraging "Embedded Steampunk" within the S4/HANA system |
 | Thomas | House Guest  | CAP | |
 | Vitaliy | House Guest | Data & Anayltics | Ideas:<ul> <li>Data federation (with "big data" in the data lake or an external object store, </li><li> Analytics capabilities in the app using SAP BTP, SAC Embedded, </li><li> Predictive on apps data stored in HANA using hana_ml |
-| ??? | House Guest | Low-Code/No-Code Appgyver | |
+| Tom | House Guest | Low-Code/No-Code Appgyver | |
 
 # Script Draft
 
