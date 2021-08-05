@@ -1,14 +1,15 @@
 # Introduction
 
+Making Developers' Lives Better
+
+Highlight SAP technologies with a clear focus on features that accelerate the development process, improve the developer experience and increases developer productivity and efficiency when developing end to end solutions or extending existing applications.  
+* Several aspects of application development will be represented including:  AI/ML,  ABAP, CAP, Data & Analytics, Low-Code/No-Code.
+Deliver this message in a fun and weird way that attempts to grab hold of the viewer’s attention.
+* We will parody the concept of “Big Brother”.  This is a globally-known popular reality television show where strangers are brought into a house to live together without any external stimulus.  Confessionals/diary scences will be mechanism for tech topic delivery.  Opening should probably parody Big Brother opening.
+* 12 Developers put in a house with no outside access (no Google search) and asked to work together to develop SAP BTP based application
+
 # Open Questions
 
-# Concept/Style
-
-* Big Brother:  Group of developers living in a house together.  Confessionals/diary scences will be mechanism for tech topic delivery.  Opening should probably parity Big Brother opening.
-
-# Themes
-
-* Make Developers Lives Better.  Focus on key features in various development tooling which make developers more productive
 
 # Key Players
 
