@@ -1,54 +1,71 @@
 {
-    "name": "cap",
-    "version": "1.0.0",
-    "description": "CAP project with Service Consumption",
-    "repository": "https://github.com/SAP-samples/teched2021-developer-keynote",
-    "license": "UNLICENSED",
-    "private": true,
-    "dependencies": {
-        "@sap/cds": "^5",
-        "express": "^4",
-        "hdb": "^0.18.3"
+  "name": "cap",
+  "version": "1.0.0",
+  "description": "CAP project with Service Consumption",
+  "repository": "https://github.com/SAP-samples/teched2021-developer-keynote",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^5",
+    "dotenv": "^10.0.0",
+    "express": "^4",
+    "hdb": "^0.18.3"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.0.2"
+  },
+  "scripts": {
+    "start": "cds serve --with-mocks"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
     },
-    "devDependencies": {
-        "sqlite3": "^5.0.2"
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
     },
-    "scripts": {
-        "start": "cds run"
-    },
-    "eslintConfig": {
-        "extends": "eslint:recommended",
-        "env": {
-            "es2020": true,
-            "node": true,
-            "jest": true,
-            "mocha": true
-        },
-        "globals": {
-            "SELECT": true,
-            "INSERT": true,
-            "UPDATE": true,
-            "DELETE": true,
-            "CREATE": true,
-            "DROP": true,
-            "CDL": true,
-            "CQL": true,
-            "CXL": true,
-            "cds": true
-        },
-        "rules": {
-            "no-console": "off",
-            "require-atomic-updates": "off"
-        }
-    },
-    "cds": {
-        "requires": {
-            "db": {
-                "kind": "sql"
-            }
-        },
-        "hana": {
-            "deploy-format": "hdbtable"
-        }
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
     }
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sql"
+      },
+      "ECPersonalInformation": {
+        "kind": "odata-v2",
+        "model": "srv\\external\\ECPersonalInformation",
+        "[development]": {
+          "credentials": {
+            "requestTimeout": 30000,
+            "url": "https://sandbox.api.sap.com/successfactors/odata/v2",
+            "authentication": "NoAuthentication"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "sfsfDest"
+          }
+        }
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    }
+  }
 }

@@ -6,6 +6,8 @@ default-*.json
 gen/
 node_modules/
 target/
+.env
+*.edmx
 
 # Web IDE, App Studio
 .che/

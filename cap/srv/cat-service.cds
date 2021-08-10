@@ -1,5 +1,16 @@
-using my.bookshop as my from '../db/data-model';
+using {ECPersonalInformation as external} from './external';
 
 service CatalogService {
-    @readonly entity Books as projection on my.Books;
+
+    @cds.persistence : {
+        table,
+        skip : false
+    }
+    @cds.autoexpose
+    entity PerPersonal  as
+        select from external.PerPersonalExt {
+            *,
+            '' as middelName : String
+        };
+
 }
