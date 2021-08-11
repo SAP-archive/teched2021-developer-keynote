@@ -7,7 +7,7 @@ service CatalogService {
         skip : false
     }
     @cds.autoexpose
-    entity PerPersonal  as
+    entity PerPersonal as
         select from external.PerPersonalExt {
             *,
             '' as middelName : String
