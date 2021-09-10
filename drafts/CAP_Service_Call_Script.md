@@ -14,7 +14,7 @@ From the command line I can use the CAP CLI to import that external service defi
 
 > cds import .\ECPersonalInformation.edmx
 >
-> show the [package.json](./package.json) and then test run with the mocking (npm start)
+> show the [package.json](../cap/package.json) and then test run with the mocking (npm start)
 
 Like most of the APIs you are going to find, this one contains a lot of fields. Afterall these APIs have to cover every usage situation. But CAP has this cool mechanims to extend a service and then mashup an existing entity. I'm going to take this entity from the external service and cut it down to just the 5 fields I want and in doing so also change the names of the fields. 
 
