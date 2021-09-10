@@ -18,15 +18,15 @@ From the command line I can use the CAP CLI to import that external service defi
 
 Like most of the APIs you are going to find, this one contains a lot of fields. Afterall these APIs have to cover every usage situation. But CAP has this cool mechanims to extend a service and then mashup an existing entity. I'm going to take this entity from the external service and cut it down to just the 5 fields I want and in doing so also change the names of the fields. 
 
-> show [external.cds](./srv/external.cds)
+> show [external.cds](../cap/srv/external.cds)
 
 We can then expose this remote service as our own with the reduced fields and even add a new, Middle Name, field that we will persist separately as part of our extension. 
 
-> show [cat-service.cds](./srv/cat-service.cds)
+> show [cat-service.cds](../cap/srv/cat-service.cds)
 
 Becuase this is a mashup of external and extended service, the generic service framework can't just serve it out; but with CAP extension handlers and the embedded SAP Cloud SDK; we can make all of that happen in just a few lines of code.
 
-> show [cat-service.js](./srv/cat-service.js)
+> show [cat-service.js](../cap/srv/cat-service.js)
 
 When someone requests our new mashup/extended service it first will forward that request to the SuccessFactors API.  CAP will take care of translation between OData V2 and V4, the renamed columns; it even makes calling the service as easy as writing a SELECT statement and forwarding all the original request query parameters right into the remove service.
 
