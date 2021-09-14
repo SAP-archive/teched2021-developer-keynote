@@ -1,5 +1,5 @@
 const cds = require('@sap/cds')
-module.exports = async (srv) => { 
+module.exports = async (srv) => {
     const ECPersonalInformation = await cds.connect.to('ECPersonalInformation')
     const { PerPersonalExt } = ECPersonalInformation.entities
     const { PerPersonal } = srv.entities
@@ -25,6 +25,9 @@ module.exports = async (srv) => {
             return item
         })
         const personalsWithExtension = await Promise.all(getExtensionData)
+        if (req.query.SELECT.count) {
+            personalsWithExtension['$count'] = personalsWithExtension.length
+        }
         return personalsWithExtension
     })
 }
