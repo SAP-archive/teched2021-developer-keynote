@@ -1,0 +1,7 @@
+{
+  "emname": "emdev",
+  "options": {
+    "management": true,
+    "messagingrest": true
+  }
+}
