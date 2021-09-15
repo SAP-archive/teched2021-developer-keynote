@@ -257,7 +257,7 @@ us10     cf-us10       cloudfoundry   AWS
 
 OK, a choice of providers; I'll go with region `us10` for this project. So I'll specify that. I'll also give the subaccount a name, and I'll want access to beta features too, thank you very much! I also need to specify a subdomain, I'll generate a UUID for that (that's a [cloud native smell](https://blogs.sap.com/2018/04/09/monday-morning-thoughts-a-cloud-native-smell/), right?):
 
-> Enters command but does NOT yet press Enter
+> Starts typing the command but does NOT yet press Enter
 
 ```
 ; btp create accounts/subaccount --region us10 --display-name messaging --beta-enabled true --subdomain 26e3dac3-ed44-4daa-9ff1-dc49435b21f9
@@ -313,11 +313,201 @@ subaccount       cd197892-90db-4302-8e34-8b6a12d30020   messaging       05a5f420
 ;
 ```
 
-## Setting the new subaccount as target
+## Assigning the service entitlement to the new subaccount
 
-Nice, there it is! Let's make it the target for subsequent commands. Right now, we're only targetting the global account, with that same custom script I used just before:
+Nice, there it is! Let's assign that Event Mesh service entitlement right now; again, it's a very similar command to what we used before, except this time we're specifying a quota of 1, not 0, to the new subaccount called "messaging":
+
+```
+; btp assign accounts/entitlement --for-service enterprise-messaging --plan dev --to-subaccount $(bgu messaging) --amount 1
+
+Assigning global account entitlement to subaccount...
+
+global account id:   59b766f4-8c29-403e-a6ce-7b7d6a7ecaab
+subaccount id:       cd197892-90db-4302-8e34-8b6a12d30020
+service/app name:    enterprise-messaging
+service plan name:   dev
+quota:               1
+enable:              false
+
+Command runs in the background.
+Use 'btp list accounts/entitlement' to verify status.
+
+OK
+```
+
+## Creating the Cloud Foundry environment
+
+All that remains now is for us to spin up an instance of that messaging service; but first, we need an actual Cloud Foundry environment here in this new subaccount. We don't have one yet, but we can summon one into existence from the comfort of our command line. Let's do that now.
+
+First, I'll set the subaccount as target for subsequent commands:
 
 ```
 ; bsg --target messaging
 cd197892-90db-4302-8e34-8b6a12d30020
 ```
+
+OK, let's see, there's not much I need to specify:
+
+> Starts typing the command but does NOT yet press Enter
+
+```
+; btp create accounts/environment-instance --environment cloudfoundry --service cloudfoundry --plan standard
+```
+
+I do need to specify an instance name, as part of a parameter set, so I'll do that too, also here on the command line, then I can kick the creation process off:
+
+```
+; btp create accounts/environment-instance --environment cloudfoundry --service cloudfoundry --plan standard --parameters '{"instance_name":"house-cf"}'
+
+Creating an environment instance for subaccount cd197892-90db-4302-8e34-8b6a12d30020...
+
+environment id:     0F770985-B556-4E66-824C-8BB8FE8CC95D
+environment name:   26e3dac3-ed44-4daa-9ff1-dc49435b21f9_cloudfoundry
+environment:        cloudfoundry
+landscape:          cf-us10
+state:              CREATING
+state message:      Creating environment instance.
+
+Command runs in the background.
+Use 'btp get accounts/environment-instance' to verify status.
+
+OK
+```
+
+## Logging in to the Cloud Foundry instance and creating a space
+
+The instance is ready for me to start using it; let's find the API endpoint, and log in. We can get the API endpoint from the instance's detailed information; first, let's grab the instance ID, and then look at the details.
+
+> Use the copy/paste to grab the "environment id" value from the output above (0F77... here).
+
+```
+; btp get accounts/environment-instance 0F770985-B556-4E66-824C-8BB8FE8CC95D
+
+OK
+
+Showing details for environment instance 0F770985-B556-4E66-824C-8BB8FE8CC95D in subaccount cd197892-90db-4302-8e34-8b6a
+
+environment name:   26e3dac3-ed44-4daa-9ff1-dc49435b21f9_cloudfoundry
+environment id:     0F770985-B556-4E66-824C-8BB8FE8CC95D
+environment type:   cloudfoundry
+state:              OK
+state message:      Environment instance created.
+landscape:          cf-us10
+labels:             {"Org Name:":"house-cf","API Endpoint:":"https://api.cf.us10.hana.ondemand.com","Org ID:":"fbc8e104-
+service name:       cloudfoundry
+plan name:          standard
+
+;
+```
+
+Great, the endpoint is what I'd expect - with the region `us10` in the domain name. Time to authenticate!
+
+```
+; cf login -a api.cf.us10.hana.ondemand.com
+API endpoint: api.cf.us10.hana.ondemand.com
+
+Email: qmacro+green@gmail.com
+Password:
+
+Authenticating...
+OK
+
+Targeted org house-cf.
+
+API endpoint:   https://api.cf.us10.hana.ondemand.com
+API version:    3.103.0
+user:           qmacro+green@gmail.com
+org:            house-cf
+space:          No space targeted, use 'cf target -s SPACE'
+# /home/user/work/teched2021-developer-keynote/drafts (cli *=)
+;
+```
+
+Looks like we need to create and target a Cloud Foundry space - no problem, let's do that now. Just like with the btp CLI, the cf CLI has some great help content:
+
+> When the help is displayed, look at the 'Space management' bit.
+```
+; cf
+cf version 7.3.0+645c3ce6a.2021-08-16, Cloud Foundry command line tool
+Usage: cf [global options] command [arguments...] [command options]
+
+Before getting started:
+  config    login,l      target,t
+  help,h    logout,lo
+
+Application lifecycle:
+  apps,a        run-task,rt    events
+  push,p        logs           set-env,se
+  start,st      ssh            create-app-manifest
+  stop,sp       app            delete,d
+  restart,rs    env,e          apply-manifest
+  restage,rg    scale          revisions
+
+Services integration:
+  marketplace,m        create-user-provided-service,cups
+  services,s           update-user-provided-service,uups
+...
+Space management:
+  spaces            create-space,csp    set-space-role
+  space-users       delete-space        unset-space-role
+  apply-manifest
+...
+```
+
+Right:
+
+```
+; cf csp dev
+Creating space dev in org house-cf as qmacro+green@gmail.com...
+OK
+
+Assigning role SpaceManager to user qmacro+green@gmail.com in org house-cf / space dev as qmacro+green@gmail.com...
+OK
+
+Assigning role SpaceDeveloper to user qmacro+green@gmail.com in org house-cf / space dev as qmacro+green@gmail.com...
+OK
+
+TIP: Use 'cf target -o "house-cf" -s "dev"' to target new space
+API endpoint:   https://api.cf.us10.hana.ondemand.com
+API version:    3.103.0
+user:           qmacro+green@gmail.com
+org:            house-cf
+space:          dev
+;
+```
+
+Done!
+
+## Creating the service
+
+We're almost done - let's check the service is available...:
+
+```
+; cf marketplace | grep messaging
+enterprise-messaging   dev                                     Connect applications, services and systems across different landscapes.                                sm-enterprise-messaging-service-broker-83820bb3-67f9-4911-8e5e-40b6b60b1284
+```
+
+Yep - and that's the plan we want too! Let's go for it - I've got some service parameters in a configuration file [emdev.json](emdev.json) that I want to use:
+
+```
+; cf cs enterprise-messaging dev emdev -c emdev.json
+Creating service instance emdev in org house-cf / space dev as qmacro+green@gmail.com...
+OK
+;
+```
+
+And that's us pretty much done! From the focus, convenience and comfort of the command line, with every bit of information at my fingertips, and features & functions just ripe for automating and building into scripts that I will use every day.
+
+A few choice commands, and now I'm the proud and happy administrator of our TechEd House project's resources on the Business Technology Platform, thanks to the power of the btp CLI and the cf CLI.
+
+> Show the following screenshots from the cockpit to demonstrate all that's been set up and configured.
+
+![account hierarchy](images/account-hierarchy.png)
+
+![cf environment in subaccount](images/cf-env-in-subaccount.png)
+
+And that's not nearly the whole story - there are plenty of other SAP CLI tools bristling with power, ready for you to embrace.
+
+Now, where did I put that mouse...?
+
+[fin]
