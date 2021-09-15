@@ -73,7 +73,7 @@ transport                                           standard                  1
 Wow, that's a lot of good stuff. Let me narrow down the search:
 
 ```
-; btp list accounts/entitlement | grep -i messaging
+; btp list accounts/entitlement | grep messaging
 enterprise-messaging                                dev                       1
 enterprise-messaging-hub                            standard                  1
 ```
@@ -222,4 +222,102 @@ Use 'btp list accounts/entitlement' to verify status.
 
 
 OK
+```
+
+Checking for the service entitlement, I can see it's assigned to our TechEd House directory, with quota available:
+
+```
+; btp list accounts/entitlement | grep techedhouse
+
+OK
+enterprise-messaging                                dev                       1.0     techedhouse   05a5f420-5a83-432d
+;
+```
+
+Great!
+
+## Creating the new subaccount
+
+Now that I have somewhere to put this separate subaccount, I can create it. But I want to check _where_ I can create it first - I'd like to see the regions that are available to me:
+
+```
+; btp list accounts/available-region
+
+OK
+
+Showing available regions for global account 59b766f4-8c29-403e-a6ce-7b7d6a7ecaab:
+
+region   data center   environment    provider
+eu10     cf-eu10       cloudfoundry   AWS
+ap21     cf-ap21       cloudfoundry   AZURE
+us10     cf-us10       cloudfoundry   AWS
+
+;
+```
+
+OK, a choice of providers; I'll go with region `us10` for this project. So I'll specify that. I'll also give the subaccount a name, and I'll want access to beta features too, thank you very much! I also need to specify a subdomain, I'll generate a UUID for that (that's a [cloud native smell](https://blogs.sap.com/2018/04/09/monday-morning-thoughts-a-cloud-native-smell/), right?):
+
+> Enters command but does NOT yet press Enter
+
+```
+; btp create accounts/subaccount --region us10 --display-name messaging --beta-enabled true --subdomain 26e3dac3-ed44-4daa-9ff1-dc49435b21f9
+```
+
+Oh, and one more thing, I want this new subaccount to be created within the TechEd House directory, so let me specify that too:
+
+```
+; btp create accounts/subaccount --region us10 --display-name messaging --beta-enabled true --subdomain 26e3dac3-ed44-4daa-9ff1-dc49435b21f9 --directory $(bgu techedhouse)
+
+Creating a subaccount in 59b766f4-8c29-403e-a6ce-7b7d6a7ecaab...
+
+subaccount id:         cd197892-90db-4302-8e34-8b6a12d30020
+display name:          messaging
+description:
+subdomain:             26e3dac3-ed44-4daa-9ff1-dc49435b21f9
+region:                us10
+created by:            qmacro+green@gmail.com
+beta-enabled:          true
+used for production:   false
+parent id:             05a5f420-5a83-432d-9572-da61f97c6935
+parent type:           directory
+state:                 Started
+
+Command runs in the background. Avoid using beta functionality in subaccounts in a production environment. SAP shall not be liable for any errors or damage arising from the use of such features.
+
+Use 'btp get accounts/subaccount' to verify status.
+
+OK
+```
+
+Let's check that out:
+
+> Recalls command via command history, rather than typing it in again
+
+```
+; btp get accounts/global-account --show-hierarchy
+
+OK
+
+Showing details for global account 59b766f4-8c29-403e-a6ce-7b7d6a7ecaab...
+
+├─ 7348430ctrial (59b766f4-8c29-403e-a6ce-7b7d6a7ecaab - global account)
+│  ├─ trial (937f3cd4-5d33-461a-bece-89b943d19c50 - subaccount)
+│  ├─ techedhouse (05a5f420-5a83-432d-9572-da61f97c6935 - directory)
+│  │  ├─ messaging (cd197892-90db-4302-8e34-8b6a12d30020 - subaccount)
+
+type:            id:                                    display name:   parent id:                             parent
+global account   59b766f4-8c29-403e-a6ce-7b7d6a7ecaab   7348430ctrial
+subaccount       937f3cd4-5d33-461a-bece-89b943d19c50   trial           59b766f4-8c29-403e-a6ce-7b7d6a7ecaab   global
+directory        05a5f420-5a83-432d-9572-da61f97c6935   techedhouse     59b766f4-8c29-403e-a6ce-7b7d6a7ecaab   global
+subaccount       cd197892-90db-4302-8e34-8b6a12d30020   messaging       05a5f420-5a83-432d-9572-da61f97c6935   directo
+;
+```
+
+## Setting the new subaccount as target
+
+Nice, there it is! Let's make it the target for subsequent commands. Right now, we're only targetting the global account, with that same custom script I used just before:
+
+```
+; bsg --target messaging
+cd197892-90db-4302-8e34-8b6a12d30020
 ```
