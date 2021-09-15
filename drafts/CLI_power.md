@@ -4,7 +4,9 @@
 
 My housemates, for the most part, are using all these fancy graphical user interfaces in their daily work. What they don't realise is that this is slowing them down, and they could work at the speed of thought by using command line tools to get things done. What's more, they keep you focused, can be combined, and most powerfully, can be scripted. With tools for the command line interface - the CLI - from SAP, I get to operate in the most powerful and flexible environment - the shell.
 
-For the House project, I have to set up an Event Mesh based messaging service in a separate, self-contained subaccount on the SAP Business Technology Platform. With the btp CLI combined with the Cloud Foundry CLI, this is super easy, and ready for automation too if I needed it. Let's get to it.
+## Context
+
+For the TechEd House project, I have to set up an Event Mesh based messaging service in a separate, self-contained subaccount on the SAP Business Technology Platform. With the btp CLI combined with the Cloud Foundry CLI, this is super easy, and ready for automation too if I needed it. Let's get to it.
 
 > Transition to demo in the main screen and Diary Room with Houseguest in small window in corner. On screen is a terminal window with the output of `btp` showing, with me logged in, but only the global account targeted, like this:
 
@@ -30,6 +32,8 @@ Tips:
 OK
 ```
 
+## Checking the existing hierarchy
+
 I'm logged into my btp global account, so I take a quick look at the hierarchy I have right now:
 
 ```
@@ -46,6 +50,8 @@ subaccount       937f3cd4-5d33-461a-bece-89b943d19c50   trial           59b766f4
 ```
 
 > I'm using my [truncated flavour](https://qmacro.org/autodidactics/2021/09/15/using-functions-more/) of `btp` here.
+
+## Checking the existing entitlement
 
 Before I go any further, I check to make sure I have an entitlement for the messaging service. Let's see what I have at the global account level:
 
@@ -74,7 +80,7 @@ enterprise-messaging-hub                            standard                  1
 
 There it is, `enterprise-messaging` with the `dev` plan, lovely.
 
-I'm going to want to allocate that entitlement and quota to another separate subaccount that I'm about to create, within a directory, so I'll just remove it from this trial subaccount so I have it ready to reassign in a minute. I'll do this by setting the quota amount to zero.
+I'm going to want to use that entitlement in another separate subaccount that I'm about to create, within a directory, so I'll just remove it from this trial subaccount so I have it ready to reassign in a minute. I'll do this by setting the quota amount to zero.
 
 I'll need to specify the GUID of the trial subaccount, which I can get with a little script. Already you can see I'm able to level up my skills and efficiency by getting this CLI to work _with_ me, not against me, making me more efficient. And the btp CLI, like other SAP command line tools, lends itself nicely to that purpose.
 
@@ -84,6 +90,8 @@ Here's the GUID for the trial subaccount:
 ; bsg trial
 937f3cd4-5d33-461a-bece-89b943d19c50
 ```
+
+## Reducing existing entitlement quota to zero
 
 Right, let's specify that in the assignment to zero:
 
@@ -106,4 +114,112 @@ Use 'btp list accounts/entitlement' to verify status.
 OK
 ```
 
-OK! Now I'm ready to create the new House project subaccount, in a directory, and use Event Mesh there.
+## Creating the directory
+
+OK! Now I'm ready to create the new TechEd House project subaccount, in a directory, and use Event Mesh there.
+
+Let's see, how can I do this, let me try with `btp create` and see if it can give me some assistance:
+
+> Types in `btp cr<tab>` to start the autocomplete, which first completes to `btp create`:
+
+```
+; btp create
+```
+
+> Then hits `<tab>` again to autocomplete to the group/objects that can be created:
+
+```
+; btp create
+accounts/directory             accounts/subaccount            services/binding
+accounts/environment-instance  security/role                  services/instance
+accounts/resource-provider     security/role-collection
+```
+
+That's some pretty powerful autocompletion going on right there. And I can see `accounts/directory`, let's ask for help on that:
+
+> Uses `<tab>` based autocompletion again (`a<tab> d<tab`) to complete to `accounts/directory` and adds `--help`, resulting in a whole load of information:
+
+```
+; btp create accounts/directory --help
+Usage: btp [OPTIONS] create accounts/directory --global-account SUBDOMAIN [--features LIST] --display-name NAME [--description DESCRIPTION] [--parent-directory ID] [--directory-admins JSON] [--subdomain SUBDOMAIN] [--custom-properties JSON]
+
+Directories allow you to organize and manage your subaccounts according to your technical and business needs. The use of directories is optional.
+
+You can create up to 5 levels of directories in your account hierarchy. If you have directories, you can still create subaccounts directly under your global account.
+
+Directory features: Set the '--features' parameter to specify which features to enable for the directory. Use either the feature name or its character.
+...
+```
+
+
+
+Wow, that's great. Seems pretty straightforward, all I need is to specify a name and the features that allow me to manage things there:
+
+```
+; btp create accounts/directory --display-name techedhouse --features D,E,A
+
+Creating directory in global account 59b766f4-8c29-403e-a6ce-7b7d6a7ecaab...
+
+directory id:         05a5f420-5a83-432d-9572-da61f97c6935
+display name:         techedhouse
+description:
+subdomain:            05a5f420-5a83-432d-9572-da61f97c6935
+directory features:   DEFAULT,ENTITLEMENTS,AUTHORIZATIONS
+created by:           qmacro+green@gmail.com
+parent id:            59b766f4-8c29-403e-a6ce-7b7d6a7ecaab
+parent type:          global account
+state:                Started
+
+Command runs in the background.
+Use 'btp get accounts/directory' to verify status.
+
+OK
+```
+
+## Checking the new directory in the hierarchy
+
+Great. I can see that new directory in the hierarchy too.
+
+> Uses command history search to recall and reinvoke the command:
+
+```
+; btp get accounts/global-account --show-hierarchy
+Showing details for global account 59b766f4-8c29-403e-a6ce-7b7d6a7ecaab...
+
+├─ 7348430ctrial (59b766f4-8c29-403e-a6ce-7b7d6a7ecaab - global account)
+│  ├─ trial (937f3cd4-5d33-461a-bece-89b943d19c50 - subaccount)
+│  ├─ techedhouse (21928858-2106-4faf-b220-575d5cd77e3f - directory)
+
+type:            id:                                    display name:   parent id:
+global account   59b766f4-8c29-403e-a6ce-7b7d6a7ecaab   7348430ctrial
+subaccount       937f3cd4-5d33-461a-bece-89b943d19c50   trial           59b766f4-8c29-403e-a6ce
+directory        21928858-2106-4faf-b220-575d5cd77e3f   techedhouse     59b766f4-8c29-403e-a6ce
+```
+
+## Assigning service quota to directory
+
+Now I can assign that service quota to this new directory, so it's ready for consumption from within the subaccount I'm going to create within it. The command is almost the same, so I'll recall the previous one and just modify it a bit:
+
+> Uses command history search to find the previous `btp assign` command, and then edits it to assign a quota of 1 to the directory:
+
+```
+; btp assign accounts/entitlement --for-service enterprise-messaging --plan dev --to-directory $(bgu techedhouse) --auto-assign --amount 1
+
+Assigning global account entitlement to directory...
+
+global account id:        59b766f4-8c29-403e-a6ce-7b7d6a7ecaab
+directory id:             05a5f420-5a83-432d-9572-da61f97c6935
+service/app name:         enterprise-messaging
+plan name:                dev
+amount:                   1
+distribute:               false
+auto assign:              true
+auto distribute amount:
+enable:                   false
+
+Command runs in the background.
+Use 'btp list accounts/entitlement' to verify status.
+
+
+OK
+```
