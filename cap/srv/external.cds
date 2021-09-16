@@ -3,10 +3,10 @@ using { ECPersonalInformation as external } from './external/ECPersonalInformati
 extend service ECPersonalInformation with {
 
     @mashup entity PerPersonalExt as projection on external.PerPersonal {
-        businessFirstName as firstName,
-        businessLastName as lastName,
-        maritalStatus as maritalStatus,
-        title as title,
+        firstName,
+        lastName,
+        initials as nameHeader,
+        title as personalTitle,
         key personIdExternal as id
 
     } 

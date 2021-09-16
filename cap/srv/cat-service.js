@@ -5,10 +5,12 @@ module.exports = async (srv) => {
     const { PerPersonal } = srv.entities
 
     srv.on(['READ'], PerPersonal, async (req) => {
-        const PerPersonalQuery = SELECT.from(PerPersonalExt)
-            .where(req.query.SELECT.where)
-            .limit(req.query.SELECT.limit)
-            .orderBy(req.query.SELECT.orderBy)
+        let PerPersonalQuery = SELECT.from(PerPersonalExt)
+        .where(req.query.SELECT.from.ref[0].where || req.query.SELECT.where)
+        .limit(req.query.SELECT.limit)
+        if(req.query.SELECT.orderBy){
+            PerPersonalQuery.orderBy(req.query.SELECT.orderBy)
+        }
 
         let personals = await ECPersonalInformation.tx(req).send({
             query: PerPersonalQuery,

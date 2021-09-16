@@ -9,7 +9,7 @@ service CatalogService {
     @cds.autoexpose
     entity PerPersonal as
         select from external.PerPersonalExt {
-            *,
+            *,            
             '' as middelName : String
         };
 
