@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5.4.4",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.7.11",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4",
