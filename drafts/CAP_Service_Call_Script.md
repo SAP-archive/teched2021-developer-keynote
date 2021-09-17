@@ -1,5 +1,7 @@
 # SAP Cloud Application Programming Model 
 
+[Video Draft](https://sap.sharepoint.com/sites/100499/advocates/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2F100499%2Fadvocates%2FShared%20Documents%2F203%2DProjects%2FTechEd%202021%2FKeynote%20Videos%2Fdev%5Fkeynote%5Fcap%5Fdraft%2Emp4&parent=%2Fsites%2F100499%2Fadvocates%2FShared%20Documents%2F203%2DProjects%2FTechEd%202021%2FKeynote%20Videos)
+
 > Open on Houseguest full screen in the Diary Room
 
 The thing about the Cloud Application Programming Model that my housemates just don't get, is that they only know it as a tool to create services or model data.  What they don't realize is that it has some great functionality to also make it easy to consume services and create service mashups and extensions too. So my task in the house this week was to extend a SuccessFactors Employee Central Personnel API with some new fields. And thanks to CAP, what might have taken me days of coding only took minutes.
