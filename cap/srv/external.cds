@@ -1,5 +1,6 @@
 using { ECPersonalInformation as external } from './external/ECPersonalInformation.csn';
 
+@cds.autoexpose
 extend service ECPersonalInformation with {
 
     @mashup entity PerPersonalExt as projection on external.PerPersonal {
@@ -9,5 +10,6 @@ extend service ECPersonalInformation with {
         title as personalTitle,
         key personIdExternal as id
 
-    } 
+    }
+
 }

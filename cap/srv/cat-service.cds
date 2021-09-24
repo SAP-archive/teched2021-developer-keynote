@@ -12,5 +12,4 @@ service CatalogService {
             *,            
             '' as middelName : String
         };
-
 }
