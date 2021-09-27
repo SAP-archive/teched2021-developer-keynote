@@ -12,9 +12,7 @@ annotate ECPersonalInformation.PerPersonalExt with {
     );
     firstName     @(title : '{i18n>firstName}');
     lastName      @(title : '{i18n>lastName}');
-    nameHeader    @(title : '{i18n>nameHeader}');
     personalTitle @(title : '{i18n>title}');
-
 };
 
 annotate CatalogService.PerPersonal with {
@@ -54,23 +52,11 @@ annotate CatalogService.PerPersonal with @(
             Value             : lastName,
             ![@UI.Importance] : #High
         },
-        {
-            $Type             : 'UI.DataField',
-            Value             : nameHeader,
-            ![@UI.Importance] : #Low
-        },
-        {
-            $Type             : 'UI.DataField',
-            Value             : personalTitle,
-            ![@UI.Importance] : #Low
-        },
-
     ],
     UI.SelectionFields     : [
         id,
         firstName,
         lastName,
-        nameHeader
     ],
 
     UI.HeaderInfo          : {
@@ -95,21 +81,13 @@ annotate CatalogService.PerPersonal with @(
             $Type : 'UI.DataField',
             Value : lastName
         },
-        {
-            $Type : 'UI.DataField',
-            Value : nameHeader
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : personalTitle
-        }
     ]
 
     },
 
     UI.Facets              : [{
         $Type  : 'UI.CollectionFacet',
-        ID     : 'FilmDetails',
+        ID     : 'PersonalDetails',
         Label  : '{i18n>details}',
         Facets : [{
             $Type  : 'UI.ReferenceFacet',
