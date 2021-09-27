@@ -87,7 +87,7 @@ I'll need to specify the GUID of the trial subaccount, which I can get with a li
 Here's the GUID for the trial subaccount:
 
 ```
-; bsg trial
+; bgu trial
 937f3cd4-5d33-461a-bece-89b943d19c50
 ```
 
@@ -96,7 +96,7 @@ Here's the GUID for the trial subaccount:
 Right, let's specify that in the assignment to zero:
 
 ```
-; btp assign accounts/entitlement --for-service enterprise-messaging --plan dev --amount 0 --to-subaccount $(bsg trial)
+; btp assign accounts/entitlement --for-service enterprise-messaging --plan dev --to-subaccount $(bgu trial) --amount 0
 
 Assigning global account entitlement to subaccount...
 
@@ -203,7 +203,7 @@ Now I can assign that service quota to this new directory, so it's ready for con
 > Uses command history search to find the previous `btp assign` command, and then edits it to assign a quota of 1 to the directory:
 
 ```
-; btp assign accounts/entitlement --for-service enterprise-messaging --plan dev --to-directory $(bgu techedhouse) --auto-assign --amount 1
+; btp assign accounts/entitlement --for-service enterprise-messaging --plan dev --to-directory $(bgu techedhouse) --amount 1 --auto-assign
 
 Assigning global account entitlement to directory...
 
@@ -342,11 +342,33 @@ All that remains now is for us to spin up an instance of that messaging service;
 First, I'll set the subaccount as target for subsequent commands:
 
 ```
-; bsg --target messaging
+; bgu --target messaging
 cd197892-90db-4302-8e34-8b6a12d30020
 ```
 
-OK, let's see, there's not much I need to specify:
+I can see that the messaging subaccount is now targeted, by simply running `btp`:
+
+```
+; btp
+SAP BTP command line interface (client v2.8.0)
+
+Usage: btp [OPTIONS] ACTION [GROUP/OBJECT] [PARAMS]
+
+CLI server URL:                    https://cpcli.cf.eu10.hana.ondemand.com (server v2.9.0)
+User:                              P2002209774 (qmacro+collab@gmail.com)
+Configuration:                     /home/user/.config/btp/config.json
+Autocomplete script (bash):        /home/user/.config/btp/autocomplete/scripts/sapbtpcli-autocomplete.plugin.sh
+RCFile path (bash):                /home/user/.bashrc
+
+Current target:
+  Global account (subdomain: c35b11e4trial-ga)
+  └─ Directory (ID: e57c5b13-9480-4a68-9c04-a603d7a017a9)
+     └─ Subaccount (ID: 19a16929-0f0e-4da1-bf19-20b7739259c3)
+
+...
+```
+
+OK, now then, let's see, there's not much I need to specify to create the Cloud Foundry environment instance:
 
 > Starts typing the command but does NOT yet press Enter
 
