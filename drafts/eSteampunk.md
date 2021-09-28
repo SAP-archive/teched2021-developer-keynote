@@ -24,11 +24,11 @@ BADIs are also available for us to implement at key enhancement spots within the
 
 > Talk through the code, first show that you can not SELECT against MARC directly, then show the copied code and show that we are SELECTing against a released view.
 
-So I need to get some data fromt the material master, I need the minimum lot size quality so that I can compare that to the order quality.  I can't do a SELECT directly aganist the MARC table, it is not allowed.  I have to go through released objects, such as the CDS view I_PRODUCTSUPPLYPLANNING.   In this case, I am doing a SELECT interjoin between the importing table parameter with item data, and the I_PRODUCTSUPPLYPLANNING CDS view on material and plant. Then I'm looping through that result set and checking the order quantity of each line item against the minimum lot size qty in the material master.  If the order qty is less than the min lot size qty, then I will issue an error message for that line item.   Ill save and activate this BADI implemtation.
+So I need to get some data from the material master. I need the minimum lot size quality so that I can compare that to the order quality.  I can't do a SELECT directly aganist the MARC table, its not allowed.  I have to go through released objects, such as the CDS view I_PRODUCTSUPPLYPLANNING.   Here I do a SELECT interjoin between the importing table parameter containing the item data, and the I_PRODUCTSUPPLYPLANNING CDS view on the masterial master.  Then looping through that result set and checking the order quantity of each line item against the minimum lot size qty in the material master.  If the order qty is less than the min lot size qty, then I will issue an error message for that line item.   
 
 > Return to the Purchase Req management screen, and show that now we have an error message if the order quantity is less than the minimum lot size quantity in the material master
 
-And return to the purchase req management screen, where now if I change the qty, I can see that my check is now executed, and it issues the error message to the application. 
+Ill save and activate this BADI implemtation and return to the purchase req management screen, where now if I change the qty, I can see that my check is now executed, and it issues the error message to the application. 
 
 > Finally show that you of course debug the code in this scearnio as well.
 
