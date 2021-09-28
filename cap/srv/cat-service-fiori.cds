@@ -1,7 +1,6 @@
 using CatalogService from './cat-service';
-using ECPersonalInformation from './external';
 
-annotate ECPersonalInformation.PerPersonalExt with {
+annotate CatalogService.PerPersonal with {
     id            @(
         Core.Computed,
         title       : '{i18n>id}',

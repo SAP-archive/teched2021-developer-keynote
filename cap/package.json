@@ -52,7 +52,7 @@
       },
       "ECPersonalInformation": {
         "kind": "odata-v2",
-        "model": "srv\\external\\ECPersonalInformation",
+        "model": "srv/external/ECPersonalInformation",
         "[development]": {
           "credentials": {
             "requestTimeout": 30000,
