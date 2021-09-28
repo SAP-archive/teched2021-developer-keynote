@@ -12,7 +12,7 @@ SAP S/4HANA Cloud customers and partners need a way to extend SAP functionality 
 
 > Open by showing the Purchase Req management screen, show that when editing a line item, I can freely enter any quantity that I want.
 
-Lets take the Purchase Requisition management application for example, I've already created a purchase req with a single line item and I can freely change the order quantity to whatever I want. But what if I want to implement a custom check, that would check the order quantity against some value.
+Lets take the Purchase Requisition management application for example, I've already created a purchase req with a single line item and I can freely change the order quantity to whatever I want. But what if I wanted to implement some custom code that would check the order quantity against some value.
 
 > Go to ADT, show that we are in an eSteampunk system, and that there are released objects available for me to leverage
 
@@ -24,7 +24,7 @@ BADIs are also available for us to implement at key enhancement spots within the
 
 > Talk through the code, first show that you can not SELECT against MARC directly, then show the copied code and show that we are SELECTing against a released view.
 
-So I need to get some data fromt the material master, I need the minimum lot size quality so that I can compare that to the order quality.  I can't do a SELECT directly aganist the MARC table, it is not allowed.  I have to go through released objects, such as the CDS view I_PRODUCTSUPPLYPLANNING.   In this case, I am doing a SELECT interjoin between the importing table parameter with item data, and the I_PRODUCTSUPPLYPLANNING CDS view on material and plant. Then I'm looping through that result set and checking the order quantity of each line item against the minimum lot size qty in the material master.  If the order qty is less than the min lot size qty, then I will issue an error message for that line item.   I can save and activate this BADI implemtation.
+So I need to get some data fromt the material master, I need the minimum lot size quality so that I can compare that to the order quality.  I can't do a SELECT directly aganist the MARC table, it is not allowed.  I have to go through released objects, such as the CDS view I_PRODUCTSUPPLYPLANNING.   In this case, I am doing a SELECT interjoin between the importing table parameter with item data, and the I_PRODUCTSUPPLYPLANNING CDS view on material and plant. Then I'm looping through that result set and checking the order quantity of each line item against the minimum lot size qty in the material master.  If the order qty is less than the min lot size qty, then I will issue an error message for that line item.   Ill save and activate this BADI implemtation.
 
 > Return to the Purchase Req management screen, and show that now we have an error message if the order quantity is less than the minimum lot size quantity in the material master
 
