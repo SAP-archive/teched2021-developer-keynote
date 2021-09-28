@@ -367,8 +367,36 @@ Current target:
 
 ...
 ```
+Now, I can see that a Cloud Foundry environment is available to me, for this subaccount, with this command:
 
-OK, now then, let's see, there's not much I need to specify to create the Cloud Foundry environment instance:
+```
+; btp list accounts/available-environment
+
+OK
+
+Showing available environments for subaccount e5de04cd-fd46-4fad-b83a-ba3fb2b54c1d:
+
+environment type   service        service display name    plan       landscape   description
+cloudfoundry       cloudfoundry   Cloud Foundry Runtime   standard   cf-us10     Create an org in your Cloud Foundry enviro
+```
+
+OK, now then, let's see, what options are there for creating an environment instance?
+
+> uses autocompletion to have a look:
+
+```
+; btp create a<tab>/e<tab> <tab>
+--display-name       [The name of the environment instance.]
+--environment       [The type of environment to create. For example: cloudfoundry. To see valid values, use "btp list accounts/available-environment".]
+--landscape       [The name of the landscape within the logged-in region on which to create the environment instance. To see valid values, use "btp list accounts/available-environment". This parameter is required only if the region has multiple landscapes.]
+--parameters       [A valid JSON object containing environment-specific configuration parameters.]
+--plan       [The plan name of the environment that meets your needs. To see valid values, use "btp list accounts/available-environment".]
+--service       [The name of the environment you want to create an instance of. To see valid values, use "btp list accounts/available-environment".]
+--subaccount       [The ID of the subaccount in which to create the environment instance.]
+-sa       [The ID of the subaccount in which to create the environment instance.]
+```
+
+OK, let's do it:
 
 > Starts typing the command but does NOT yet press Enter
 
@@ -379,7 +407,7 @@ OK, now then, let's see, there's not much I need to specify to create the Cloud 
 I do need to specify an instance name, as part of a parameter set, so I'll do that too, also here on the command line, then I can kick the creation process off:
 
 ```
-; btp create accounts/environment-instance --environment cloudfoundry --service cloudfoundry --plan standard --parameters '{"instance_name":"house-cf"}'
+; btp create accounts/environment-instance --environment cloudfoundry --service cloudfoundry --plan standard --parameters '{"instance_name":"techedhouse-cf"}'
 
 Creating an environment instance for subaccount cd197892-90db-4302-8e34-8b6a12d30020...
 
@@ -395,6 +423,21 @@ Use 'btp get accounts/environment-instance' to verify status.
 
 OK
 ```
+
+Excellent. I can use the `get accounts/environment-instance` command to see the status, or I can just ask for a list, like this:
+
+```
+; btp list accounts/environment-instance
+
+OK
+
+Showing environment details for subaccount e5de04cd-fd46-4fad-b83a-ba3fb2b54c1d:
+
+environment name                                    environment id                         environment type   state   state message                   landscape
+c15beb84-46cf-4ae8-a06d-efcfe177be47_cloudfoundry   90A07441-3D1F-4491-B422-3A7DCB1FD52F   cloudfoundry       OK      Environment instance created.   cf-us10
+```
+
+And there it is!
 
 ## Logging in to the Cloud Foundry instance and creating a space
 
@@ -499,6 +542,17 @@ space:          dev
 ```
 
 Done!
+
+Let's just follow the advice there and target that new space now:
+
+```
+; cf target -s dev
+API endpoint:   https://api.cf.us10.hana.ondemand.com
+API version:    3.103.0
+user:           qmacro+red@gmail.com
+org:            house-cf2
+space:          dev
+```
 
 ## Creating the service
 
