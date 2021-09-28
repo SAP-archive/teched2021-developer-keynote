@@ -28,7 +28,7 @@ But this is where we start to grow the possibilities of who can work with us on 
 
 They can even preview and deploy the application without ever having to deal with technical complexities like package.json or mta.yaml files. 
 
-But now that we have our service deployed, we want to develop a mobile UI.  This is where AppGyver can be doubly helpful. There's many of a backend application developer that has little to no experience with frontend or expecially mobile development.  But AppGyver is such a simple tool that both professional developers with frontend experience and business experts could both build flexible UIs.
+But now that we have our service deployed, we want to develop a mobile UI.  This is where AppGyver can be doubly helpful. There's many of a backend application developer that has little to no experience with frontend or expecially mobile development.  But AppGyver is such a simple tool that both professional developers with little frontend experience and business experts could both build flexible UIs.
 
 > Switch to AppGyver and Configure OData Integration
 
