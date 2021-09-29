@@ -65,12 +65,23 @@ Cut back "outside of house" and Mamikee says.. "This is a good time to recap....
 # Cut Scenes
 
 DJ constantly tweaking food, complains when others try and help, and returns items to pantry., chefs hat, towel over shoulder.
+  
 Tom J constantly cleaning and doing laundry making bed, sweeping. Cleaning blue sink.
+  
 Rich always on treadmill or working out
+  
 Michele
+  
 Katharina
+  
+Marius
+  
+Josh looking in the mirror, combing your beard
+  
 Thomas G relaxing back in chairs and sofa, shrugs at stuff, sunglasses
+  
 Kevin throwing stuff in air or knocking stuff over that’s in his way
+  
 Vitalij constantly looking for beer
 
 # Big Brother Research
