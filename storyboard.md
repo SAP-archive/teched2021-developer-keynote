@@ -87,12 +87,21 @@ Vitalij constantly looking for beer
 # Props Needed
 
 Beer
+  
 Broom/Dust pan
+  
 Pasta/Sauce
+  
 Dishes/Silverware
+  
 Chess Kit
+  
 Laundry
+  
 Bed/Pillow
+  
 Couch
+  
 Gym Clothes
+  
 Sunglasses(Thomas G)
