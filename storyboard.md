@@ -30,6 +30,19 @@ Deliver this message in a fun and weird way that attempts to grab hold of the vi
 | Thomas Grassl | House Guest | Low-Code/No-Code Appgyver | So easy even a manager can use the Low-Code/No Code. Persona wears a tie and carries around a clip board. Shows the new Developer Launch Portal in the BTP Cockipt.  Start in AppGyver to "prototype" the app.  Then using the Launch Portal, switches the project from No Code AppGyver to Low Code in Business Application Studio. Uses the Low code wizards and graphical editors to finish the project (but also could show how you can still get into the coding level as well.| [Script](https://github.com/SAP-samples/teched2021-developer-keynote/blob/main/drafts/Low_No_Code.md) | [Video](https://sap.sharepoint.com/:v:/r/sites/100499/advocates/Shared%20Documents/203-Projects/TechEd%202021/Keynote%20Videos/DevKeynote_SAPHANACloudDataLakeFiles_roughdemo.mp4?csf=1&web=1&e=xMgrt3) |
 
 # Script Draft
+  
+Opening - Mamikee in the TechEdhouse opening the show.  Set the mission of the house. Why are we altogether.  We brought these developers together in the TechEdhouse to see how they can make developers lives' better by introducing new tools and techniques to each other and the audience.  Short description of what happened previously?  Now its time for another check in on all the developers as they influence each other by showcasing their demos.   From ABAP to iOS development, the developers will cover a lot of different topics.   I remember when <name> and <name> got in an arguement about <topic1>, now lets show you really want <name> was trying to explain. 
+  
+Throw to first demo, perhaps DJ.  At the end of the demo, DJ says something like, now I have to go cook dinner for all these folks, since no one else will do it.  Show DJ, entering kitchen and shaking his head.
+
+
+
+  
+
+  
+
+  
+  
 
 # Big Brother Research
 
