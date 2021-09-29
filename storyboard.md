@@ -84,3 +84,15 @@ Kevin throwing stuff in air or knocking stuff over that’s in his way
   
 Vitalij constantly looking for beer
 
+# Props Needed
+
+Beer
+Broom/Dust pan
+Pasta/Sauce
+Dishes/Silverware
+Chess Kit
+Laundry
+Bed/Pillow
+Couch
+Gym Clothes
+Sunglasses(Thomas G)
