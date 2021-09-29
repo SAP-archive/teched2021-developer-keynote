@@ -55,7 +55,7 @@ Throw to Katharinas demo.   "I don't know what his problem is with Josh, he knew
   
 Throw to Tom demo.  Tom enters confessional with a stack of folded laundry, a litle annoyed, says " i need to learn how to say no". Goes into demo.  Finishes demo and grabs his laundry and stands up and says,  "they better not have ate without me again".   
   
-Throw to Thomas Grassl demo.  Thomas G sitting in the dining area alone, waiting for dinner time, looking at his watch. the table set, no one is there.  Sighs and says.. ok well guess I'll just go with a power bar(as he pulls one from his shirt pocket).  heads to confessional.   Does demo.  Finishes demo, and says... "maybe I'll go see if dinner is ready now"..  sighs and says...  no code, no worries. 
+Throw to Thomas Grassl demo.  Thomas G sitting in the dining area alone, waiting for dinner time, looking at his watch. the table set, no one is there. Show Grassl as shrugging off annoyance.  Sighs and says.. ok well guess I'll just go with a power bar(as he pulls one from his shirt pocket).  heads to confessional.   Does demo.  Finishes demo, and says... "maybe I'll go see if dinner is ready now"..  sighs and says...  no code, no worries. 
   
 Cut back to Vitalij still looking for beer.
 
