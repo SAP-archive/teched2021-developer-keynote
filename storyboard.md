@@ -45,16 +45,16 @@ Throw to Kevin demo.  Kevin comes in to confession, groggy and a little annoyed.
   
 Throw to Rich demo.   Rich says, can you believe that guy,  I've seen him on the treadmill like twice since we've been here.  Rich goes into demo.  Guess I'll head to the shower before dinner.  Quick life hack.  Grab your own towel cuz no one does any laundry. Passes josh in the hallway, says "so I guess the sink is blue again?".  Cut to shot of Rich at sink which is stained blue. 
   
-Throw to Josh demo.  Josh sits down and says... They hate me because I'm beautiful. Goes into demo.  Josh goes to the lounge area to show off his newly died beard and is talking loudly which is annoying Marius who is currectly relaxing in the lounge. 
+Throw to Josh demo.  Josh sits down and says... They hate me because I'm beautiful. Goes into demo.  Josh goes to the lounge area to show off his newly died beard and is talking loudly which is annoying Marius who is currectly playing a game of chess with Thomas J in the lounge.  Josh says loudly, "if your not busy Tom, could you sweep up the hair someone left on the bathroom floor?  Thomas J stops playing chess with Marius and says sure, I'll take care of it. 
   
 Cut back to Vitalij still looking for beer in the pantry. Arms folded staring. 
+ 
+Throw to Tom demo.  Tom enters confessional with a broom and dust pan, a litle annoyed, says " i need to learn how to say no". Goes into demo.  Finishes demo and grabs broom and dust pan and says.  I guess I'll go sweep up before dinner.  Passes marius and says... you wanna finish that game of chess?  Marius says, I can't take anymore of Josh's loud mouth, I need some peace.   
   
 Throw to  Marius demo.  Says,  so I had to come in here to get some peace and quiet.  That guy talks way too much. Goes into demo.  Marius comes out of the confession as katharina approaches, he asks Katharina if she has seen the loud guy with the blue beard.  She says no, he says ok good, I'll go setup the table for dinner. 
   
-Throw to Katharinas demo.   "I don't know what his problem is with Josh, he knew he was coming into a house with 9 other developers".   Goes into demo.  Walks passed the laundry area, where she sees Thomas J folding his laundry.  Says to him,  you know, my stuff needs folded too if you have time.  Tom says... well its almost dinner time, but sure I'll take care of it, make sure they leave some dinner for me.  
-  
-Throw to Tom demo.  Tom enters confessional with a stack of folded laundry, a litle annoyed, says " i need to learn how to say no". Goes into demo.  Finishes demo and grabs his laundry and stands up and says,  "they better not have ate without me again".   
-  
+Throw to Katharinas demo.   "I don't know what his problem is with Josh, he knew he was coming into a house with 9 other developers".   Goes into demo.  Walks passed the laundry area, where she sees Thomas J folding his laundry.  Says to him,  you know, my stuff needs folded too if you have time.  Tom says... well its almost dinner time, but sure I'll take care of it, make sure they leave some dinner for me.  She then goes to the dining area, says,  "hey make sure they save some dinner for other Thomas".  Thomas G shrugs and says "ok".  Katharina continues off set. 
+
 Throw to Thomas Grassl demo.  Thomas G sitting in the dining area alone, waiting for dinner time, looking at his watch. the table set, no one is there. Show Grassl as shrugging off annoyance.  Sighs and says.. ok well guess I'll just go with a power bar(as he pulls one from his shirt pocket).  heads to confessional.   Does demo.  Finishes demo, and says... "maybe I'll go see if dinner is ready now"..  sighs and says...  no code, no worries. 
   
 Cut back to Vitalij still looking for beer.
