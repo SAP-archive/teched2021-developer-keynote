@@ -8,3 +8,5 @@ There are two draft scripts in this directory:
 
 * [original.md](original.md) contains more content, including the use of the `cf` CLI to create a space in the CF org and instantiate a service instance; I had to leave this out in the end because I couldn't get it all into the 4 minute window
 * [short.md](short.md) is a cut down version of the original, and what I used to create the demo video recording referenced above; it doesn't have the `cf` part
+
+The `bgu` script I used is an experimental one called [`btpguid`](https://github.com/qmacro/dotfiles/blob/main/scripts/btp/btpguid) (`bgu` is aliased to this).
