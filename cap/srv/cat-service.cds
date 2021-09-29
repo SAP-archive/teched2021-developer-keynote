@@ -1,4 +1,4 @@
-using {ECPersonalInformation as external} from './external';
+using { ECPersonalInformation as external } from './external/ECPersonalInformation.csn';
 
 service CatalogService {
 
@@ -8,8 +8,14 @@ service CatalogService {
     }
     @cds.autoexpose
     entity PerPersonal as
-        select from external.PerPersonalExt {
-            *,            
-            '' as middelName : String
-        };
+    projection on external.PerPersonal {
+        firstName,
+        lastName,
+        initials as nameHeader,
+        title as personalTitle,
+        key personIdExternal as id,
+        key startDate,
+        '' as middelName : String
+
+    }
 }
