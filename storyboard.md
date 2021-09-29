@@ -31,17 +31,37 @@ Deliver this message in a fun and weird way that attempts to grab hold of the vi
 
 # Script Draft
   
-Opening - Mamikee in the TechEdhouse opening the show.  Set the mission of the house. Why are we altogether.  We brought these developers together in the TechEdhouse to see how they can make developers lives' better by introducing new tools and techniques to each other and the audience.  Short description of what happened previously?  Now its time for another check in on all the developers as they influence each other by showcasing their demos.   From ABAP to iOS development, the developers will cover a lot of different topics.   I remember when <name> and <name> got in an arguement about <topic1>, now lets show you really want <name> was trying to explain. 
+Opening - Mamikee outside of the TechEdhouse opening the show.  Set the mission of the house. Why are we altogether.  We brought these developers together in the TechEdhouse to see how they can make developers lives' better by introducing new tools and techniques to each other and the audience.  Short description of what happened previously?  Now its time for another check in on all the developers as they influence each other by showcasing their demos.   From ABAP to iOS development, the developers will cover a lot of different topics.   I remember when <name> and <name> got in an arguement about <topic1>, now lets show you really want <name> was trying to explain. 
   
-Throw to first demo, perhaps DJ.  At the end of the demo, DJ says something like, now I have to go cook dinner for all these folks, since no one else will do it.  Show DJ, entering kitchen and shaking his head.
-
-
-
+Throw to DJ demo.  Before leaving confessional, DJ says, gotta go cook dinner for these folks since no one else will do it.  On his way out Vitalij comes in. 
   
-
+Throw to Vitalij demo.  Starts by saying,  finally DJ is out of here I can show you my demo. Now done with demo,  goes to pantry to see if the beer is restocked, where Michele is just grabbing the last beer and walking out.  Vitaji stares as the last beer walks away. Cut to michele to confession, cracking the beer.
   
+Throw to Micheles demo.   Sits down and says.. "you gotta be quicker than that", and smiles to the camera.  Starts demo.  Finishes, stands up and says guess I'll go take a nap till dinner is ready. Goes to the bedroom, turns on the light.  Wakes up Kevin in the process. Kevin says, well so much for my nap, leaves to confession.
 
+Cut back to Vitalij still standing in pantry not finding any more beer.   
   
+Throw to Kevin demo.  Kevin comes in to confession, groggy and a little annoyed. Goes into his demo.  Leaves confessional and heads gym, where rich is just getting off treadmill,  Kevin says,  oh so someone else can use the treadmill now??  Thanks dude.  Rich says,  well I had to get my 10k in today.
+  
+Throw to Rich demo.   Rich says, can you believe that guy,  I've seen him on the treadmill like twice since we've been here.  Rich goes into demo.  Guess I'll head to the shower before dinner.  Quick life hack.  Grab your own towel cuz no one does any laundry. Passes josh in the hallway, says "so I guess the sink is blue again?".  Cut to shot of Rich at sink which is stained blue. 
+  
+Throw to Josh demo.  Josh sits down and says... They hate me because I'm beautiful. Goes into demo.  Josh goes to the lounge area to show off his newly died beard and is talking loudly which is annoying Marius who is currectly relaxing in the lounge. 
+  
+Cut back to Vitalij still looking for beer in the pantry. Arms folded staring. 
+  
+Throw to  Marius demo.  Says,  so I had to come in here to get some peace and quiet.  That guy talks way too much. Goes into demo.  Marius comes out of the confession as katharina approaches, he asks Katharina if she has seen the loud guy with the blue beard.  She says no, he says ok good, I'll go setup the table for dinner. 
+  
+Throw to Katharinas demo.   "I don't know what his problem is with Josh, he knew he was coming into a house with 9 other developers".   Goes into demo.  Walks passed the laundry area, where she sees Thomas J folding his laundry.  Says to him,  you know, my stuff needs folded too if you have time.  Tom says... well its almost dinner time, but sure I'll take care of it, make sure they leave some dinner for me.  
+  
+Throw to Tom demo.  Tom enters confessional with a stack of folded laundry, a litle annoyed, says " i need to learn how to say no". Goes into demo.  Finishes demo and grabs his laundry and stands up and says,  "they better not have ate without me again".   
+  
+Throw to Thomas Grassl demo.  Thomas G sitting in the dining area alone, waiting for dinner time, looking at his watch. the table set, no one is there.  Sighs and says.. ok well guess I'll just go with a power bar(as he pulls one from his shirt pocket).  heads to confessional.   Does demo.  Finishes demo, and says... "maybe I'll go see if dinner is ready now"..  sighs and says...  no code, no worries. 
+  
+Cut back to Vitalij still looking for beer.
+
+Cut back "outside of house" and Mamikee says.. "This is a good time to recap.... yada yada yada"
+  
+ 
   
 
 # Big Brother Research
