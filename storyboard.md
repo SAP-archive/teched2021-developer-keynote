@@ -33,13 +33,13 @@ Deliver this message in a fun and weird way that attempts to grab hold of the vi
   
 Opening - Mamikee outside of the TechEdhouse opening the show.  Set the mission of the house. Why are we altogether.  We brought these developers together in the TechEdhouse to see how they can make developers lives' better by introducing new tools and techniques to each other and the audience.  Short description of what happened previously?  Now its time for another check in on all the developers as they influence each other by showcasing their demos.   From ABAP to iOS development, the developers will cover a lot of different topics.   I remember when <name> and <name> got in an arguement about <topic1>, now lets show you really want <name> was trying to explain. 
   
-1) Throw to DJ demo.  Before leaving confessional, DJ says, gotta go cook dinner for these folks since no one else will do it.  On his way out Vitalij comes in. 
+1) Throw to DJ demo.  Before leaving confessional, DJ says, gotta go cook dinner for these folks since no one else will do it.  On his way out Vitaliy comes in. 
   
-2) Throw to Vitalij demo.  Starts by saying,  finally DJ is out of here I can show you my demo. Now done with demo,  goes to pantry to see if the beer is restocked, where Michele is just grabbing the last beer and walking out.  Vitaji stares as the last beer walks away. Cut to michele to confession, cracking the beer.
+2) Throw to Vitaliy demo.  Starts by saying,  finally DJ is out of here I can show you my demo. Now done with demo,  goes to pantry to see if the beer is restocked, where Michele is just grabbing the last beer and walking out.  Vitaji stares as the last beer walks away. Cut to michele to confession, cracking the beer.
   
 3) Throw to Micheles demo.   Sits down and says.. "you gotta be quicker than that", and smiles to the camera.  Starts demo.  Finishes, stands up and says guess I'll go take a nap till dinner is ready. Goes to the bedroom, turns on the light.  Wakes up Kevin in the process. Kevin says, well so much for my nap, leaves to confession.
 
-Cut back to Vitalij still standing in pantry not finding any more beer.   
+Cut back to Vitaliy still standing in pantry not finding any more beer.   
   
 4) Throw to Kevin demo.  Kevin comes in to confession, groggy and a little annoyed. Goes into his demo.  Leaves confessional and heads gym, where rich is just getting off treadmill,  Kevin says,  oh so someone else can use the treadmill now??  Thanks dude.  Rich says,  well I had to get my 10k in today.
   
@@ -47,7 +47,7 @@ Cut back to Vitalij still standing in pantry not finding any more beer.
   
 6) Throw to Josh demo.  Josh sits down and says... They hate me because I'm beautiful. Goes into demo.  Josh goes to the lounge area to show off his newly died beard and is talking loudly which is annoying Marius who is currectly playing a game of chess with Thomas J in the lounge.  Josh says loudly, "if your not busy Tom, could you sweep up the hair someone left on the bathroom floor?  Thomas J stops playing chess with Marius and says sure, I'll take care of it. 
   
-Cut back to Vitalij still looking for beer in the pantry. Arms folded staring. 
+Cut back to Vitaliy still looking for beer in the pantry. Arms folded staring. 
  
 7) Throw to Tom demo.  Tom enters confessional with a broom and dust pan, a litle annoyed, says " i need to learn how to say no". Goes into demo.  Finishes demo and grabs broom and dust pan and says.  I guess I'll go sweep up before dinner.  Passes marius and says... you wanna finish that game of chess?  Marius says, I can't take anymore of Josh's loud mouth, I need some peace.   
   
@@ -57,7 +57,7 @@ Cut back to Vitalij still looking for beer in the pantry. Arms folded staring.
 
 10) Throw to Thomas Grassl demo.  Thomas G sitting in the dining area alone, waiting for dinner time, looking at his watch. the table set, no one is there. Show Grassl as shrugging off annoyance.  Sighs and says.. ok well guess I'll just go with a power bar(as he pulls one from his shirt pocket).  heads to confessional.   Does demo.  Finishes demo, and says... "maybe I'll go see if dinner is ready now"..  sighs and says...  no code, no worries. 
   
-Cut back to Vitalij still looking for beer.
+Cut back to Vitaliy still looking for beer.
 
 Cut back "outside of house" and Mamikee says.. "This is a good time to recap.... yada yada yada"
   
@@ -82,7 +82,7 @@ Thomas G relaxing back in chairs and sofa, shrugs at stuff, sunglasses
   
 Kevin throwing stuff in air or knocking stuff over that’s in his way
   
-Vitalij constantly looking for beer
+Vitaliy constantly looking for beer
 
 # Props Needed
 
