@@ -578,9 +578,9 @@ A few choice commands, and now I'm the proud and happy administrator of our Tech
 
 > Show the following screenshots from the cockpit to demonstrate all that's been set up and configured.
 
-![account hierarchy](images/account-hierarchy.png)
+![account hierarchy](account-hierarchy.png)
 
-![cf environment in subaccount](images/cf-env-in-subaccount.png)
+![cf environment in subaccount](cf-env-in-subaccount.png)
 
 And that's not nearly the whole story - there are plenty of other SAP CLI tools bristling with power, ready for you to embrace.
 

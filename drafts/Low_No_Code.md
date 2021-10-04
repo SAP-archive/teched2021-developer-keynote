@@ -4,7 +4,7 @@
 
 > Open full screen with this intro
 
-As a development manager to this Motley Crew and a former developer myself; I'm constantly tasked with trying to figure out how to increase the amount of new apps and enhancements we can deliver to the business. They constant want more functionality that our team alone can deliver.  
+As a development manager to this Motley Crew and a former developer myself; I'm constantly tasked with trying to figure out how to increase the amount of new apps and enhancements we can deliver to the business. They constantly want more functionality than our team alone can deliver.  
 
 This is where the trends with Low and No Code development have caught my attention. I'm obviously looking for anything that improves the developer productivity of my team, but also for ways to allow the business to build some of the content themsevles. And while some of these tools certainly look accessible, I need to make sure I'm not unleashing developers that won't be integrated into our environment or standards well. And this is why I got so excited by the new Low and No code offerings from SAP. 
 
@@ -12,9 +12,9 @@ This is where the trends with Low and No Code development have caught my attenti
 
 ![Application Development Lobby](images/low_no_app_dev_lobby.png)
 
-I'm going to start here in the new Application Development Lobby of the SAP Business Technology Platform. I like that all our orgnaization's projects can be viewed in one location regardless if they were created in the SAP Business Application Studio or AppGyver.  This allows us to let employees outside our development group use some of this tooling but still have oversite and interaction with the projects they create. 
+I'm going to start here in the new Application Development Lobby of the SAP Business Technology Platform. I like that all of my projects can be viewed in one location regardless if they were created in the SAP Business Application Studio or AppGyver.  
 
-In fact what my team has done is started with the Cloud Application Programming Model application from earlier that extends the SuccessFactors service.  That was originally coded by one of the pro-developers in my team via the SAP Business Application Studio with a full stack development experience. They can directly code in the underlying JavaScript or Java of the CAP model and have access to lots of expert tooling and debugging; including command line interface via the embedded terminal.
+In fact what my team has done is started with the Cloud Application Programming Model application from earlier that extends the SuccessFactors service.  That was originally coded by one of the pro-developers in my team via the SAP Business Application Studio with a full stack development experience. They can directly code in the underlying JavaScript or Java of the CAP programming model and have access to lots of expert tooling and debugging; including command line interface via the embedded terminal.
 
 > Show the Full Stack devspace experience with BAS and a CAP project
 
@@ -28,7 +28,7 @@ But this is where we start to grow the possibilities of who can work with us on 
 
 They can even preview and deploy the application without ever having to deal with technical complexities like package.json or mta.yaml files. 
 
-But now that we have our service deployed, we want to develop a mobile UI.  This is where AppGyver can be doubly helpful. There's many of a backend application developer that has little to no experience with frontend or expecially mobile development.  But AppGyver is such a simple tool that both professional developers with frontend experience and business experts could both build flexible UIs.
+But now that we have our service deployed, we want to develop a mobile UI.  This is where AppGyver can be doubly helpful. There's many a backend application developer that has little to no experience with frontend or expecially mobile development.  But AppGyver is such a simple tool that both professional developers with little frontend experience and business experts could both build flexible UIs.
 
 > Switch to AppGyver and Configure OData Integration
 
