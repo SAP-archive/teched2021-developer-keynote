@@ -2,29 +2,24 @@
 
 > Open on Houseguest full screen in the Diary Room
 
-When talking to my roomates the other day some of them mention that they really would like to to start using AI and integrate into there application. But they do not know where to start or are afraid of being not capable of since they are not a Data Scientiest. Thereby it is pretty simple. 
-You can start right away your AI experience by using SAP AI capabilities 
-
+When talking to my roomates the other day some of them mentioned they are annoyed of the manual, repetitive work they have to do in their daily business and like to automate and optimize some of their business processes by using AI. But they do not know where to start or are afraid of not being capable of since they are not a Data Scientiest. Thereby it is pretty simple to get started with. 
+Let me show you that your first inference call is just around the corner and you can get it for free.
 
 > Transition to demo in the main screen and Diary Room with Houseguest in small window in corner. On screen you see the [Discovery Center](https://discovery-center.cloud.sap/viewServices?category=all) :
 
 ![account hierarchy](images/discoveryCenter.png)
-
-To get an overview of what SAP provides you can go to the Discovery Center by using the Filter "AI & Machine Learning".
+In the Discovery Center you get an overview of SAP AI technology offered via the Business Technology Platform. 
 
 > Select the "AI & Machine Learning" filter under the By capability filter 
 
 ![DiscoAI](images/disco_ai.png)
+E.g. with the AI Business Services, you can use machine learning to automate your document information extraction processes; detect and highlight entities from unstructured text; classify data records, business documents and customer service requests.  
 
-Here you find the  AI reusable assets such as the AI Business Services, but also the AI Foundation that supports you in managing and extend the SAP offering with AI capabilities. 
+You can also build your own chatbot by using Conversational AI. 
+And with the newly released AI Core you can handle the execution and operation of your AI assets in a standardized and scalable way. 
 
-I will use the Business Entity Recognition service for today that detects and highlight entities in unstructured text, such as in an email.  
-
-> Select Busines Entity Recognition 
-
-BER comes along with a pretrained model but you are also able to train your own custom model with your data.
-
-![DiscoBER](images/disco_ber.png)
+For the demo I'll use the AI Business Service Business Entity Recognitionthat detect and highlight entities from unstructured text, such as in an email.  
+Besides training your own custom model with your data it also comes along with a pretrained models, where one of it I will  use. 
 
 > Switch to BTP and the global account. 
 
@@ -32,9 +27,9 @@ To setup the service I go to my global account in BTP and use the Booster to spe
 
 > Describe the click path up to the service plan selection and explain the free service plan
 
-Such as many other services BER has the free service plan that let's you try out the services in your global account without any additional costs and makes the updgrade to paid plan much easier without creating a new service instance.   
+Such as many other services BER has the free tier option that let's you try out the services in your global account without any additional costs and makes the updgrade to paid plan much easier without creating a new service instance.   
 
-![BTP_BER_Free](images/btp_ber_free.png)
+![BTP_BER_Free](images/btp_ber_freeplan.png)
 
 Once the setup is done you need to download the service_key which you need to interact with the BER service from your application.
 
@@ -42,7 +37,7 @@ Once the setup is done you need to download the service_key which you need to in
 
 > Download service_key and switch to the jupyter notebook
 
-Now since the service is up and running we can finally start with the fun part and programm our first inference call. Therefore I'm using the python client SDK provided by the Business Entity Recoginition service that you can install via the following command ( btw also the other AI Business Services such as Data Attribute Recommendation and Document Information Extraction/Classification provide a client SDK)
+Now the service is up and running and we can now start with the fun part and programm our first inference call. Therefore I'm using the python client SDK provided by the Business Entity Recoginition service that you can get from pypi.org. Btw also the other AI Business Services such as Data Attribute Recommendation and Document Information Extraction/Classification provide a python client SDK. 
 
 `pip install sap-business-entity-recognition-client-library`
 
@@ -63,7 +58,7 @@ The text we are using is: Hey Big Brother, did you already received my invoice 4
 ```
 model_name = "sap_email_business_entity"
 model_version = 1
-text = 'Hey Big Brother, did you already received my invoice 456789. Cheers, Katharina'
+text = 'Hey, did you already received my invoice 456789. Cheers, Katharina'
 ```
 
 The text, the model name and the version we pass as inputs into the post_inference_job to trigger the inference call.
@@ -102,12 +97,9 @@ Output:
 ```
 This returns that it has extracted the invoiceReferenceNumber 456789 with a confidence of 0.86. And voila! You had your first interaction with a model. 
 
-> Switch back to the discovery center
-
 And as already said beside the pretrained model you can also train your own model with your data. 
 And if you vote for me so that I can stay in the house I can show you how to train your own model with newly introduced AI API which provides you a standard way of ML scenario lifecycle management. If I have to leave the house you have to do by yourself with the help of the nice tutorials. ;-)
 
-![DiscoBER](images/disco_ber.png)
 
 
 
