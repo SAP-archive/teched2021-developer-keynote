@@ -1,0 +1,914 @@
+{
+  "meta": {
+    "creator": "cds-dk 4.4.1"
+  },
+  "$version": "2.0",
+  "definitions": {
+    "ECPersonalInformation": {
+      "kind": "service"
+    },
+    "ECPersonalInformation.GenerateNextPersonIDResponse": {
+      "kind": "type",
+      "elements": {
+        "personID": {
+          "type": "cds.LargeString"
+        }
+      }
+    },
+    "ECPersonalInformation.PerEmergencyContacts": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "name": {
+          "key": true,
+          "type": "cds.String",
+          "length": 256
+        },
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "relationship": {
+          "key": true,
+          "type": "cds.String",
+          "length": 50
+        },
+        "addressAddress1": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressAddress2": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressAddress3": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressCity": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressCountry": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressCounty": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressProvince": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressState": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressZipCode": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "email": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "isAddSameAsEmployee": {
+          "type": "cds.Boolean"
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "operation": {
+          "type": "cds.LargeString"
+        },
+        "phone": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "primaryFlag": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "secondPhone": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressNavDEFLT": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.HrisEmergencyContactAddressDEFLT"
+        },
+        "personNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPerson"
+        }
+      }
+    },
+    "ECPersonalInformation.PerPhone": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "phoneType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "areaCode": {
+          "type": "cds.String",
+          "length": 32
+        },
+        "countryCode": {
+          "type": "cds.String",
+          "length": 32
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "extension": {
+          "type": "cds.String",
+          "length": 32
+        },
+        "includeAllRecords": {
+          "type": "cds.Boolean"
+        },
+        "isPrimary": {
+          "type": "cds.Boolean"
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "operation": {
+          "type": "cds.LargeString"
+        },
+        "phoneNumber": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "personNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPerson"
+        }
+      }
+    },
+    "ECPersonalInformation.PersonKey": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 32
+        },
+        "perPersonUuid": {
+          "type": "cds.String",
+          "length": 32
+        },
+        "personId": {
+          "type": "cds.Integer64"
+        }
+      }
+    },
+    "ECPersonalInformation.PerPersonal": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "startDate": {
+          "key": true,
+          "type": "cds.Date"
+        },
+        "attachmentId": {
+          "type": "cds.LargeString"
+        },
+        "businessFirstName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "businessLastName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "displayName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "firstName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "gender": {
+          "type": "cds.String",
+          "length": 2
+        },
+        "includeAllRecords": {
+          "type": "cds.Boolean"
+        },
+        "initials": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "lastName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "maritalStatus": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "middleName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "nationality": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "nativePreferredLang": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "operation": {
+          "type": "cds.LargeString"
+        },
+        "preferredName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "salutation": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "script": {
+          "type": "cds.String",
+          "length": 32
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "personNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPerson"
+        }
+      }
+    },
+    "ECPersonalInformation.PerSocialAccount": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "domain": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "imId": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "operation": {
+          "type": "cds.LargeString"
+        },
+        "url": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "personNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPerson"
+        }
+      }
+    },
+    "ECPersonalInformation.PerPerson": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 32
+        },
+        "birthName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "countryOfBirth": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "dateOfBirth": {
+          "type": "cds.Date"
+        },
+        "includeAllRecords": {
+          "type": "cds.Boolean"
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "perPersonUuid": {
+          "type": "cds.String",
+          "length": 32
+        },
+        "personId": {
+          "type": "cds.Integer64"
+        },
+        "regionOfBirth": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "userId": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "emailNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerEmail",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "emergencyContactNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerEmergencyContacts",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "homeAddressNavDEFLT": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerAddressDEFLT",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "nationalIdNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerNationalId",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "personRerlationshipNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPersonRelationship",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "personalInfoNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPersonal",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "phoneNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPhone",
+          "cardinality": {
+            "max": "*"
+          }
+        },
+        "socialAccountNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerSocialAccount",
+          "cardinality": {
+            "max": "*"
+          }
+        }
+      }
+    },
+    "ECPersonalInformation.PerPersonRelationship": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "relatedPersonIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "startDate": {
+          "key": true,
+          "type": "cds.Date"
+        },
+        "addressAddress1": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressAddress2": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressAddress3": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressCity": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressCountry": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressCounty": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressProvince": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressState": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressZipCode": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "attachmentId": {
+          "type": "cds.LargeString"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "firstName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "isAccompanyingDependent": {
+          "type": "cds.Boolean"
+        },
+        "isAddressSameAsPerson": {
+          "type": "cds.Boolean"
+        },
+        "isBeneficiary": {
+          "type": "cds.Boolean"
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "lastName": {
+          "type": "cds.String",
+          "length": 128
+        },
+        "operation": {
+          "type": "cds.LargeString"
+        },
+        "relationshipType": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "personNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPerson"
+        },
+        "relNationalIdNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerNationalId"
+        },
+        "relPersonNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPerson"
+        },
+        "relPersonalNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPersonal"
+        }
+      }
+    },
+    "ECPersonalInformation.PerEmail": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "emailType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 38
+        },
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "emailAddress": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "includeAllRecords": {
+          "type": "cds.Boolean"
+        },
+        "isPrimary": {
+          "type": "cds.Boolean"
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "operation": {
+          "type": "cds.LargeString"
+        },
+        "personNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPerson"
+        }
+      }
+    },
+    "ECPersonalInformation.HrisEmergencyContactAddressDEFLT": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "addressId": {
+          "key": true,
+          "type": "cds.DecimalFloat"
+        },
+        "address1": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "address2": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "address3": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "address4": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "address5": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "addressType": {
+          "type": "cds.String",
+          "length": 30
+        },
+        "city": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "country": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "county": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "notes": {
+          "type": "cds.String",
+          "length": 4000
+        },
+        "province": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "startDate": {
+          "type": "cds.Date"
+        },
+        "state": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "zipCode": {
+          "type": "cds.String",
+          "length": 256
+        }
+      }
+    },
+    "ECPersonalInformation.PerNationalId": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "cardType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 256
+        },
+        "country": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "isPrimary": {
+          "type": "cds.Boolean"
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "nationalId": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "notes": {
+          "type": "cds.String",
+          "length": 4000
+        },
+        "operation": {
+          "type": "cds.LargeString"
+        },
+        "personNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPerson"
+        }
+      }
+    },
+    "ECPersonalInformation.PerAddressDEFLT": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "addressType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 30
+        },
+        "personIdExternal": {
+          "key": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "startDate": {
+          "key": true,
+          "type": "cds.Date"
+        },
+        "address1": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "address2": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "address3": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "address4": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "address5": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "city": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "country": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "county": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "createdDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "createdOn": {
+          "type": "cds.Date"
+        },
+        "empUsersSysId": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "endDate": {
+          "type": "cds.Date"
+        },
+        "includeAllRecords": {
+          "type": "cds.Boolean"
+        },
+        "lastModifiedBy": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "lastModifiedDateTime": {
+          "type": "cds.Timestamp"
+        },
+        "lastModifiedOn": {
+          "type": "cds.Date"
+        },
+        "notes": {
+          "type": "cds.String",
+          "length": 4000
+        },
+        "operation": {
+          "type": "cds.LargeString"
+        },
+        "province": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "state": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "zipCode": {
+          "type": "cds.String",
+          "length": 256
+        },
+        "personNav": {
+          "type": "cds.Association",
+          "target": "ECPersonalInformation.PerPerson"
+        }
+      }
+    }
+  }
+}

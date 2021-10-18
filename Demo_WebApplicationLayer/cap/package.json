@@ -1,0 +1,80 @@
+{
+    "name": "cap",
+    "version": "1.0.0",
+    "description": "CAP project with Service Consumption",
+    "repository": "https://github.com/SAP-samples/teched2021-developer-keynote",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^5.5.3",
+        "@sap/cds-odata-v2-adapter-proxy": "^1.7.12",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4",
+        "hdb": "^0.18.3"
+    },
+    "devDependencies": {
+        "@sap/ux-specification": "^1.90.10",
+        "cds-swagger-ui-express": "^0.3.0",
+        "sqlite3": "^5.0.2"
+    },
+    "scripts": {
+        "start": "cds serve --with-mocks",
+        "watch-personal-lr": "cds watch --open personal-lr/webapp/index.html#fe-lrop-v4",
+        "undeploy": "cf undeploy cap --delete-services --delete-service-keys"
+    },
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "env": {
+            "es2020": true,
+            "node": true,
+            "jest": true,
+            "mocha": true
+        },
+        "globals": {
+            "SELECT": true,
+            "INSERT": true,
+            "UPDATE": true,
+            "DELETE": true,
+            "CREATE": true,
+            "DROP": true,
+            "CDL": true,
+            "CQL": true,
+            "CXL": true,
+            "cds": true
+        },
+        "rules": {
+            "no-console": "off",
+            "require-atomic-updates": "off"
+        }
+    },
+    "cds": {
+        "requires": {
+            "db": {
+                "kind": "sql"
+            },
+            "ECPersonalInformation": {
+                "kind": "odata-v2",
+                "model": "srv/external/ECPersonalInformation",
+                "[development]": {
+                    "credentials": {
+                        "requestTimeout": 30000,
+                        "url": "https://sandbox.api.sap.com/successfactors/odata/v2",
+                        "authentication": "NoAuthentication"
+                    }
+                },
+                "[production]": {
+                    "credentials": {
+                        "destination": "sfsfDest"
+                    }
+                }
+            }
+        },
+        "hana": {
+            "deploy-format": "hdbtable"
+        }
+    },
+    "sapux": [
+        "app/personal-lr"
+    ]
+}
