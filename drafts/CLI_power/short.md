@@ -1,8 +1,6 @@
 # Intro
 
-For the most part, my housemates all like to use fancy graphical user interfaces but don't realise how much that slows them down. They don't know about the power of the shell.
-
-In the house I've been tasked with creating a Cloud Foundry messaging service based on SAP Event Mesh, in a separate self-contained subaccount and I'm going to use the btp CLI to do it. Super easy, fast and so scriptable!
+So I've been tasked with creating a Cloud Foundry messaging service based upon SAP Event Mesh, in a separate self-contained subaccount on SAP's Business Technology Platfom. I'm going to use the btp CLI to do it, rather than any fancy GUI which would only slow me down. Command line tools are powerful, fast and so scriptable!
 
 # Look at global account & hierarchy
 
@@ -40,16 +38,16 @@ Now I can just recall the previous assignment command to give the entitlement to
 
 # Targeting the subaccount
 
-A lot of btp CLI commands are aimed at the subaccount level; right now my btp CLI is targeting my global account only, by default. A quick invocation of my bgu script adds my new subaccount to the target. Super!
+A quick invocation of my bgu script adds my new subaccount to the target. Super!
 
 # Creating the Cloud Foundry environment instance
 
-We saw that the US10 region supported Cloud Foundry; I can confirm that by listing the environments that are available to us in this subaccount now. Yep. Nice.
+We saw that the US10 region supported Cloud Foundry; I can confirm that by listing the environments that are available to us in this subaccount now.
 
-So now, again with a little help from the btp CLI autocompletion, I can easily find my way to create an instance of such an environment. Now, let's have a look what I might need to specify - right, the environment, in the form of type, service and plan, and I need to pass an environment-specific parameter in JSON format to specify the name of the instance. DONE!
+Again, with a little help from the btp CLI autocompletion, I can easily find my way to create an instance of such an environment. Now, let's have a look what I might need to specify - right, the environment, in the form of type, service and plan, and I need to pass an environment-specific parameter in JSON format to specify the name of the instance. DONE!
 
 And that's pretty much all I need to do. I can check the list of environment instances in my subaccount like this, and there it is, in all its glory.
 
 # Wrapping up
 
-Beyond how quick that was, just imagine building that power into automated scripts. The world is your lobster, and of course, the future is terminal!
+Beyond how easy that was, just imagine building that power into automated scripts. The world is your lobster, and of course, the future is terminal!
