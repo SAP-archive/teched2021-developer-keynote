@@ -145,11 +145,15 @@ That's some pretty powerful autocompletion going on right there. And I can see `
 ; btp create accounts/directory --help
 Usage: btp [OPTIONS] create accounts/directory --global-account SUBDOMAIN [--features LIST] --display-name NAME [--description DESCRIPTION] [--parent-directory ID] [--directory-admins JSON] [--subdomain SUBDOMAIN] [--custom-properties JSON]
 
-Directories allow you to organize and manage your subaccounts according to your technical and business needs. The use of directories is optional.
+Directories allow you to organize and manage your subaccounts according to your
+technical and business needs. The use of directories is optional.
 
-You can create up to 5 levels of directories in your account hierarchy. If you have directories, you can still create subaccounts directly under your global account.
+You can create up to 5 levels of directories in your account hierarchy. If you
+have directories, you can still create subaccounts directly under your global
+account.
 
-Directory features: Set the '--features' parameter to specify which features to enable for the directory. Use either the feature name or its character.
+Directory features: Set the '--features' parameter to specify which features to
+enable for the directory. Use either the feature name or its character.
 ...
 ```
 
