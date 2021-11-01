@@ -14,7 +14,7 @@ The fun thing this year is that the sections are on different topics, and stand 
 
 Here are those sections, in no particular order.
 
-* [Command Line Magic](command-line-magic/) - learn how the command line is a powerful and scriptable environment that can help you get your job done faster, more directly, and perhaps most importantly, in a way that you can automate and customize. The primary focus for this section is on the CLI tool for the SAP Business Technology Platform - the BTP CLI.
+* [Command Line Magic](section/command-line-magic/) - learn how the command line is a powerful and scriptable environment that can help you get your job done faster, more directly, and perhaps most importantly, in a way that you can automate and customize. The primary focus for this section is on the CLI tool for the SAP Business Technology Platform - the BTP CLI.
 
 ## How to obtain support
 
