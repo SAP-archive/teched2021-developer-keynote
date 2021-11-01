@@ -202,6 +202,8 @@ subaccount       937f3cd4-5d33-461a-bece-89b943d19c50   trial           59b766f4
 directory        21928858-2106-4faf-b220-575d5cd77e3f   techedhouse     59b766f4-8c29-403e-a6ce
 ```
 
+> In case you're interested, there's a short blog post on parsing the output of this command, comparing text-based output parsing with JSON-based output parsing with `jq`: [Embracing jq and JSON](https://qmacro.org/autodidactics/2021/10/29/embracing-jq-and-json/).
+
 ## Assigning service quota to directory
 
 Now I can assign that service quota to this new directory, so it's ready for consumption from within the subaccount I'm going to create within it. The command is almost the same, so I'll recall the previous one and just modify it a bit:
