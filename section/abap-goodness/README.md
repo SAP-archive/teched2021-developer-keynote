@@ -17,8 +17,6 @@ CLASS zcl_mm_pur_s4_pr_check DEFINITION
   PRIVATE SECTION.
 ENDCLASS.
 
-
-
 CLASS zcl_mm_pur_s4_pr_check IMPLEMENTATION.
 
   METHOD if_mm_pur_s4_pr_check~check.    
