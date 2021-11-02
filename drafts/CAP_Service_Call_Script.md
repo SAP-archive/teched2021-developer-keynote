@@ -4,6 +4,8 @@
 
 > Open on Houseguest full screen in the Diary Room
 
+I can't believe I agreed to clean up Josh's hair! I need to learn how to say no! And now I'm doing two demos becuase I couldn't say no again. Oh Well...
+
 The thing about the Cloud Application Programming Model that my housemates just don't get, is that they only know it as a tool to create services or model data.  What they don't realize is that it has some great functionality to also make it easy to consume services and create service mashups and extensions too. So my task in the house this week was to extend a SuccessFactors Employee Central Personnel API with some new fields. And thanks to CAP, what might have taken me days of coding only took minutes.
 
 > Transition to demo in the main screen and Diary Room with Houseguest in small window in corner. 
