@@ -2,3 +2,5 @@
 .swp
 .DS_Store
 drafts/.DS_Store
+node_modules/
+.env

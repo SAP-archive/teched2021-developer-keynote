@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:l="sap.ui.layout">
+	<l:VerticalLayout  core:require="{handler: 'personallr/ext/fragment/PersonalDetails'}">
+		<Text text="PersonalDetails" />
+		<Button text="PersonalDetails" press="handler.predefinedMethod" />
+	</l:VerticalLayout>
+</core:FragmentDefinition>

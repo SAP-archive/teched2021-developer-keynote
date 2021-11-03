@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout">
+	<l:VerticalLayout core:require="{formatter: 'personallr/ext/fragment/CustomFormatter'}">
+		<Text text="{
+		path: 'nationality',
+		formatter: 'formatter.formatNationality'
+	}" tooltip="{nationality}" />
+	</l:VerticalLayout>
+</core:FragmentDefinition>
