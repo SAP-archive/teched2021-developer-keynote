@@ -18,6 +18,8 @@ Here are those sections, in no particular order.
 
 * [ABAP Goodness](section/abap-goodness/) - learn how SAP S/4HANA Cloud customers and partners can extend SAP functionality in a cloud-ready way while continuing to keep the core clean by leveraging Embedded Steampunk.
 
+* [SAP Fiori elements apps for OData V4](section/frontend) - explore the code that leverages the flexible programming model to extend SAP Fiori elements apps for OData V4. This projects build on an existing CAP demo that can be found in this repo as well.
+
 ## How to obtain support
 
 [Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
