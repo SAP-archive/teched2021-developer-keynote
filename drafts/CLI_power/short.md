@@ -1,6 +1,6 @@
 # Intro
 
-So I've been tasked with creating a Cloud Foundry messaging service based upon SAP Event Mesh, in a separate self-contained subaccount on SAP's Business Technology Platfom. I'm going to use the btp CLI to do it, rather than any fancy GUI which would only slow me down. Command line tools are powerful, fast and so scriptable!
+So I need to create a Cloud Foundry messaging service based upon SAP Event Mesh, in a separate self-contained subaccount on SAP's Business Technology Platfom. I'm going to use the btp CLI to set things up, rather than any fancy GUI which would only slow me down. Command line tools are powerful, fast and so scriptable!
 
 # Look at global account & hierarchy
 
