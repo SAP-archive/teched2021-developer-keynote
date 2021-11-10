@@ -60,4 +60,4 @@ For this, we had to add a new fragment and JavaScript file to the `ext` folder a
 ```
 
 
-> A running code sample of custom columns can be found in the [SAP Fiori elements Flexible Programming Model Explorer](https://sapui5.hana.ondemand.com/test-resources/sap/fe/core/fpmExplorer/index.html#/customElements/customElementsOverview/customColumnContent)
+> A running code sample of custom columns can be found in the [SAP Fiori elements Flexible Programming Model Explorer](https://sapui5.hana.ondemand.com/test-resources/sap/fe/core/fpmExplorer/index.html#/customElements/customElementsOverview/customColumnContent).
