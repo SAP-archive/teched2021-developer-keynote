@@ -4,10 +4,6 @@ module.exports = async (srv) => {
     const { PerPersonal } = srv.entities
 
     srv.on(['READ'], PerPersonal, async (req) => {
-        if (req.query.SELECT.from.ref[0].where){
-            req.query.SELECT.from.ref[0].where[6].val += 'T00:00:00'
-        }
-
         let PerPersonalQuery = SELECT.from(req.query.SELECT.from)
             .limit(req.query.SELECT.limit)
         if (req.query.SELECT.where) {
