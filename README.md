@@ -20,6 +20,10 @@ Here are those sections, in no particular order.
 
 * [SAP Fiori elements apps for OData V4](section/frontend) - explore the code that leverages the flexible programming model to extend SAP Fiori elements apps for OData V4. This projects build on an existing CAP demo that can be found in this repo as well.
 
+* [SAP Cloud Application Programming Model Consuming Remote Services](section/cap) - In this demo we show how CAP can also be used to consume Remote Service. From importing the service definition, to creating extended entities that are mixture of remote service and local persistenence, to coding the logic to make this all work; you will find all of this in this CAP example project.
+
+* [Low-/No- Code Development](section/low_no_code) - For this demo section, we see how the new SAP offerings in both Low and No Code development offer the opportunity to expand how much content can be delivered to a business. Either through improving the productivity of professional developers or creating opportunities for citizen developers or business builders; the expanded possibilites are impressive. 
+
 ## How to obtain support
 
 [Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
