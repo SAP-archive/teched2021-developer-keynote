@@ -18,7 +18,7 @@ From the command line I can use the CAP CLI to import that external service defi
 
 ![Import EDMX](../../images/cap_import_edmx.jpg)
 
-This converts the specificaition into CSN or Schema Notation and adjusts my project's [package.json](./package.json#L53-L65) with technical configuration to connect to the service.  It allows me to mock the service locally while I develop with data from a CSV file.
+This converts the specification into CSN or Schema Notation and adjusts my project's [package.json](./package.json#L53-L65) with technical configuration to connect to the service.  It allows me to mock the service locally while I develop with data from a CSV file.
 
 ![Mock Testing](../../images/cap_mock_testing.jpg)
 
@@ -51,7 +51,7 @@ We can then expose this remote service as our own with the reduced fields and ev
 
 ## Coding the Service Handler
 
-Becuase this is a mashup of external and extended service, the generic service framework can't just serve it out; but with CAP extension handlers and the embedded SAP Cloud SDK, we can make all of that happen in just a few lines of code.
+Because this is a mashup of external and extended service, the generic service framework can't just serve it out; but with CAP extension handlers and the embedded SAP Cloud SDK, we can make all of that happen in just a few lines of code.
 
 [cat-service.js](./srv/cat-service.js)
 
