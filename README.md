@@ -22,7 +22,7 @@ Here are those sections, in no particular order.
 
 * [SAP Cloud Application Programming Model Consuming Remote Services](section/cap) - In this demo we show how CAP can also be used to consume Remote Service. From importing the service definition, to creating extended entities that are mixture of remote service and local persistenence, to coding the logic to make this all work; you will find all of this in this CAP example project.
 
-* [Low-/No- Code Development](section/low_no_code) - For this demo section, we see how the new SAP offerings in both Low and No Code development offer the opportunity to expand how much content can be delivered to a business. Either through improving the productivity of professional developers or creating opportunities for citizen developers or business builders; the expanded possibilites are impressive. 
+* [Low / No Code Development](section/low_no_code) - For this demo section, we see how the new SAP offerings in both Low and No Code development offer the opportunity to expand how much content can be delivered to a business. Either through improving the productivity of professional developers or creating opportunities for citizen developers or business builders; the expanded possibilites are impressive. 
 
 ## How to obtain support
 

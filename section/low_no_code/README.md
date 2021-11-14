@@ -1,4 +1,4 @@
-# Low- / No- Code Development
+# Low / No Code Development
 
 Problem: how to increase the amount of new apps and enhancements a development team can deliver to the business. The business constantly wants more functionality than most teams alone can deliver.  
 
