@@ -2,7 +2,7 @@
 
 Problem: how to increase the amount of new apps and enhancements a development team can deliver to the business. The business constantly wants more functionality than most teams alone can deliver.  
 
-This is where the trends with Low and No Code development can help. Development teams are looking for anything that improves the developer productivity of their team, but also for ways to allow the business to build some of the content themsevles. And while some of these tools certainly look accessible, they need to make sure they are not unleashing developers that won't be integrated into their environment or standards well. And this is why SAP's new Low and No code offerings are exciting.
+This is where the trends with Low and No Code development can help. Development teams are looking for anything that improves the developer productivity of their team, but also for ways to allow the business to build some of the content themselves. And while some of these tools certainly look accessible, they need to make sure they are not unleashing developers that won't be integrated into their environment or standards well. And this is why SAP's new Low and No code offerings are exciting.
 
 ## Full Stack Development Experience
 
@@ -26,7 +26,7 @@ They can even preview and deploy the application without ever having to deal wit
 
 ## No Code with AppGyver
 
-But now that we have our service deployed, we want to develop a mobile UI.  This is where AppGyver can be doubly helpful. There's many a backend application developer that has little to no experience with frontend or expecially mobile development.  But AppGyver is such a simple tool that both professional developers with little frontend experience and business experts could both build flexible UIs.
+But now that we have our service deployed, we want to develop a mobile UI.  This is where AppGyver can be doubly helpful. There's many a backend application developer that has little to no experience with frontend or especially mobile development.  But AppGyver is such a simple tool that both professional developers with little frontend experience and business experts could both build flexible UIs.
 
 ![OData Integration](../../images/low_no_appgyver_configure_odata.png)
 
@@ -36,6 +36,6 @@ We can then drag and drop to design our UI and bind the controls with the data s
 
 ![AppGyver Designer](../../images/low_no_appgyver_designer.png)
 
-In in minutes we have a mobile enabled applciation consuming our CAP service previewed in the Web Browser or directly on mobile device.
+In in minutes we have a mobile enabled application consuming our CAP service previewed in the Web Browser or directly on mobile device.
 
 ![AppGyver Preview](../../images/low_no_appgyver_preview_in_browser.png)
