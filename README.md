@@ -16,7 +16,7 @@ Here are those sections, in no particular order.
 
 * [Command Line Magic](section/command-line-magic/) - learn how the command line is a powerful and scriptable environment that can help you get your job done faster, more directly, and perhaps most importantly, in a way that you can automate and customize. The primary focus for this section is on the CLI tool for the SAP Business Technology Platform - the BTP CLI.
 
-* [ABAP Goodness](section/abap-goodness/) - learn how SAP S/4HANA Cloud customers and partners can extend SAP functionality in a cloud-ready way while continuing to keep the core clean by leveraging Embedded Steampunk.
+* [ABAP Extensibility with Embedded Steampunk](section/abap-goodness/) - learn how SAP S/4HANA Cloud customers and partners can extend SAP functionality in a cloud-ready way while continuing to keep the core clean by leveraging Embedded Steampunk.
 
 * [SAP Fiori elements apps for OData V4](section/frontend) - explore the code that leverages the flexible programming model to extend SAP Fiori elements apps for OData V4. This projects build on an existing CAP demo that can be found in this repo as well.
 
