@@ -85,7 +85,7 @@ Output:
                       'vendorId': []}],
           'status': 'SUCCESS'}}
 ```
-The response returns the prediction of the extracted entities. It extracted the invoiceReferenceNumber 456789 with a confidence of 0.86. Et voila! You had your first interaction with AI. See it wasn't so hard.
+The response returns the prediction of the extracted entities. It extracted the invoiceReferenceNumber 456789 with a confidence of 0.85. Et voila! You had your first interaction with AI. See it wasn't so hard.
 
 And this is just the start. E.g. besides the pretrained model you can also train your own model with your own data. How to do that and also to get more hands-on experience about the other SAP AI technology I can only recommend you to explore the [SAP Tutorials](https://developers.sap.com/tutorial-navigator.html?tag=topic%3Atechnology-development%2Fartificial-intelligence) and start your AI journay right away.
 
