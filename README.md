@@ -30,6 +30,8 @@ Here are those sections, in no particular order.
 
 * [Automating your dev workflow with git commit hooks](section/git-commit-hooks) - with a few dev dependencies in your project you can set up a super comfortable mechanism that will take the drudgery out of your development workflow - for automatically formatting files and running unit tests on commit.
 
+* [Your first steps with AI](section/first-steps-ai) - you don't have to be a Data Scientist to be able to embrace and make use of AI services. See how easy it is to get started with pre-trained models from the AI Business Services on SAP Business Technology Platform.
+
 ## How to obtain support
 
 [Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
