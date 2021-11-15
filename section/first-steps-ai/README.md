@@ -6,7 +6,7 @@ Let me show you that your first AI call is just around the corner and you can ge
 
 In the [Discovery Center](https://discovery-center.cloud.sap/viewServices?category=all) you get an overview of SAP AI technology offered via the Business Technology Platform. You simple need to select the "AI & Machine Learning" filter under the "By Capability" filter
 
-![DiscoAI](disco_ai.png)
+![DiscoAI](images/disco_ai.png)
 There  you find the AI Business Services which are reusable and support you in automating corporate processes. They address common SAP needs like to classify data records or customer service requests or to automate your document information extraction processes. ( [Data Attribute Recommendation](https://discovery-center.cloud.sap/serviceCatalog/data-attribute-recommendation?region=europe(frankfurt)), [Service Ticket Intelligence](https://discovery-center.cloud.sap/serviceCatalog/service-ticket-intelligence?region=all), [Document Information Extraction](https://discovery-center.cloud.sap/serviceCatalog/document-information-extraction?service_plan=blocks-of-100-records&region=all). [Document Classification](https://discovery-center.cloud.sap/serviceCatalog/document-classification?region=europe(frankfurt)))
 
 Or you can build your own chatbot by using [SAP Conversational AI](https://discovery-center.cloud.sap/serviceCatalog/conversational-ai?region=europe(frankfurt)).
