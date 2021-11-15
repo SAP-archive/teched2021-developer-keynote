@@ -22,11 +22,12 @@ BER has the free tier option that lets you try out the service in your global ac
 
 ![BTP_BER_Free](btp_ber_freeplan.png)
 
-Once the setup is done you download the service_key which you need to interact with the BER service from your application.
+Once the setup is done you download the service_key which you need to interact with the BER service from your application. Put the downloaded service-key into the folder [__service_key__](__service_key__).
 
 ![service_key](service_key.png)
 
-Now since the service is up and running, we can start with the fun part and program our first AI inference call. Therefore I'm using the python client SDK provided by the Business Entity Recognition service that you can get from [pypi.org](https://pypi.org/project/sap-business-entity-recognition-client-library/#description). Btw we also offer this for the other AI capabilities mentioned before.
+Now since the service is up and running, we can start with the fun part and program our first AI inference call. The jupyter notebook you can find here [pretrained_model_inference.ipynb](pretrained_model_inference.ipynb) 
+Therefore I'm using the python client SDK provided by the Business Entity Recognition service that you can get from [pypi.org](https://pypi.org/project/sap-business-entity-recognition-client-library/#description). Btw we also offer this for the other AI capabilities mentioned before.
 
 `pip install sap-business-entity-recognition-client-library`
 
