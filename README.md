@@ -32,6 +32,8 @@ Here are those sections, in no particular order.
 
 * [Your first steps with AI](section/first-steps-ai) - you don't have to be a Data Scientist to be able to embrace and make use of AI services. See how easy it is to get started with pre-trained models from the AI Business Services on SAP Business Technology Platform.
 
+* [Combining external and enterprise data with SAP HANA Cloud](section/hana-cloud) - find out how straightforward it can be to bring in data from an external source and merge it into your enterprise data landscape. See how the SAP HANA Cloud, Data Lake is used, with SAP Data Intelligence Cloud too. And there's a powerful command line tool as well as an HTTP based API that is WebHDFS compatible.
+
 ## How to obtain support
 
 [Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
