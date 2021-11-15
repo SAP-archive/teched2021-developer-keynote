@@ -12,12 +12,12 @@ Let me show you that your first AI call is just around the corner and you can ge
 
 > Transition to demo in the main screen and Diary Room with Houseguest in small window in corner. On screen you see the [Discovery Center](https://discovery-center.cloud.sap/viewServices?category=all) : 00:56
 
-![account hierarchy](images/discoveryCenter.png)
+![account hierarchy](discoveryCenter.png)
 In the Discovery Center you get an overview of SAP AI technology offered via the Business Technology Platform.
 
 > Select the "AI & Machine Learning" filter under the By capability filter
 
-![DiscoAI](images/disco_ai.png)
+![DiscoAI](disco_ai.png)
 There  you find the AI Business Services which are reusable and support you in automating corporate processes. They address common SAP needs like to classify data records or customer service requests or to automate your document information extraction processes;
 
 Or you can build your own chatbot by using SAP Conversational AI.
@@ -35,11 +35,11 @@ To setup the service I go to my global account in BTP and use the Booster to spe
 
 BER has the free tier option that lets you try out the service in your global account without any costs and allows to upgrade to paid plan very easy too.
 
-![BTP_BER_Free](images/btp_ber_freeplan.png)
+![BTP_BER_Free](btp_ber_freeplan.png)
 
 Once the setup is done you download the service_key which you need to interact with the BER service from your application.
 
-![service_key](images/service_key.png)
+![service_key](service_key.png)
 
 > Download service_key and switch to the jupyter notebook
 
