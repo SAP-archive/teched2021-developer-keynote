@@ -28,6 +28,8 @@ Here are those sections, in no particular order.
 
 * [Eventing and CI/CD in Kyma](section/eventing-cicd-kyma) - you're now able to incorporate SAP Event Mesh into Kyma, which is a great alternative to NATS. Additionally you'll learn how you can set up a Continuous Integration / Continuous Delivery (CI/CD) within a Kyma namespace to make your development workflow smoother.
 
+* [Automating your dev workflow with git commit hooks](section/git-commit-hooks) - with a few dev dependencies in your project you can set up a super comfortable mechanism that will take the drudgery out of your development workflow - for automatically formatting files and running unit tests on commit.
+
 ## How to obtain support
 
 [Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
