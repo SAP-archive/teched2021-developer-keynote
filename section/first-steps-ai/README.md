@@ -4,16 +4,16 @@ When talking to my teammates the other day some of them mentioned they are annoy
 
 Let me show you that your first AI call is just around the corner and you can get it for free.
 
-In the [Discovery Center](https://discovery-center.cloud.sap/viewServices?category=all) you get an overview of SAP AI technology offered via the Business Technology Platform. You simple need to select the "AI & Machine Learning" filter under the "By capability" filter
+In the [Discovery Center](https://discovery-center.cloud.sap/viewServices?category=all) you get an overview of SAP AI technology offered via the Business Technology Platform. You simple need to select the "AI & Machine Learning" filter under the "By Capability" filter
 
 ![DiscoAI](disco_ai.png)
-There  you find the AI Business Services which are reusable and support you in automating corporate processes. They address common SAP needs like to classify data records or customer service requests or to automate your document information extraction processes;
+There  you find the AI Business Services which are reusable and support you in automating corporate processes. They address common SAP needs like to classify data records or customer service requests or to automate your document information extraction processes. ( [Data Attribute Recommendation](https://discovery-center.cloud.sap/serviceCatalog/data-attribute-recommendation?region=europe(frankfurt)), [Service Ticket Intelligence](https://discovery-center.cloud.sap/serviceCatalog/service-ticket-intelligence?region=all), [Document Information Extraction](https://discovery-center.cloud.sap/serviceCatalog/document-information-extraction?service_plan=blocks-of-100-records&region=all). [Document Classification](https://discovery-center.cloud.sap/serviceCatalog/document-classification?region=europe(frankfurt)))
 
-Or you can build your own chatbot by using SAP Conversational AI.
+Or you can build your own chatbot by using [SAP Conversational AI](https://discovery-center.cloud.sap/serviceCatalog/conversational-ai?region=europe(frankfurt)).
 
-And with the newly released AI Core you can handle the execution and operation of your AI assets in a standardized and scalable way.
+And with the newly released [AI Core](https://discovery-center.cloud.sap/serviceCatalog/sap-ai-core?service_plan=standard&region=europe(frankfurt)) you can handle the execution and operation of your AI assets in a standardized and scalable way.
 
-For the demo I'll use the AI Business Service Business Entity Recognition that detects and highlights entities from unstructured text, such as in an email.
+For the demo I'll use the AI Business Service [Business Entity Recognition](https://discovery-center.cloud.sap/serviceCatalog/business-entity-recognition?region=all) that detects and highlights entities from unstructured text, such as in an email.
 Besides training your custom model with your own data it also comes along with a pretrained models, which gives us a quickstart to use ready-to-go machine learning models very easily. I'll use this later on.
 
 To setup the service I go to my global account in [BTP](https://cockpit.eu10.hana.ondemand.com/cockpit/#/globalaccount/41e745dc-a635-4ad4-85c3-502f71eda7f1/accountModel&//?section=SubaccountsSection&view=TilesView) and use the Booster to speed up the time of setting up the service.
