@@ -26,6 +26,8 @@ Here are those sections, in no particular order.
 
 * [SAP Fiori for iOS ARKit Open Source project](section/fiori-ios-arkit) - learn how this project lets you build powerful augmented reality apps from the comfort of your Xcode development environment, while benefiting from the SAP Fiori design guidelines. Imagination is your only limit.
 
+* [Eventing and CI/CD in Kyma](section/eventing-cicd-kyma) - you're now able to incorporate SAP Event Mesh into Kyma, which is a great alternative to NATS. Additionally you'll learn how you can set up a Continuous Integration / Continuous Delivery (CI/CD) within a Kyma namespace to make your development workflow smoother.
+
 ## How to obtain support
 
 [Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.

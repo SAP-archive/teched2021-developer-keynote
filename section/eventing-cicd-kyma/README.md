@@ -1,0 +1,40 @@
+# Eventing and CI/CD in Kyma
+
+So it’s been a while in here, this house.  I’m not saying I feel misunderstood or underappreciated, but well,  I feel misunderstood and under appreciated.
+
+It’s like this.  A car can be assembled and used but the driver.  And an amusement park can be built with roller coasters and all kinds of fun rides.  But you don’t live at the amusement park, you use a car (or some other transport) to get there.
+
+So, when I talk Kyma and the connectivity services it provides like Eventing, and CI/CD etc.  I am trying to explain to people, some of who want to argue semantics about spoken and written language more than code, but anyway, I want an ABAP, HANA, Java and any other developer to know that there is data they can hard code a path to, but a better choice when using SAP is to take advantage of Kubernetes based orchestration.  Have a containerized app use the tools BTP allows for.  Let me show you an example.
+
+We used to do only NATS, but now we also offer SAP Event Mesh with Kyma Eventing.
+
+*	Lets enter the BTP console here and enable Mesh
+*	First we need to generate a secret
+*	Next, we add a JSON file,
+*	Then Go to Service Management > Instances and click on the newly-created Service Instance.
+*	Click on Credentials > Create Credentials.
+*	In your Namespace, go to Configuration > Secrets.
+*	Click on the Edit button next to your Secret and label the Secret with kyma-project.io/eventing-backend: beb. In the editor, this should look like:
+
+```
+  labels:
+      kyma-project.io/eventing-backend: beb
+```
+
+I was even talking on the sofa to (CAP Developer) and they just didn’t get it, so we went into a discussion about code changes and who really automates that.
+
+I told them we could also make changes to my app and have those managed by CI/CD in Kyma.  Well here is how that would look…
+
+In BTP, we have our Kyma Environemnt with Kubernetes set up.  We choose SAP Continuous Integration and Delivery, We edit a job in the Stages section with the proper credential and repository location.
+
+Then we set some CI/CD variables and hit CREATE
+
+The pipeline will be able to build a docker image (kaniko build) and deploy it either using the kubectl or the helm3.
+
+You don’t need to own CI/CD infrastructure instead, Kyma has the ability to add those via an image.
+
+This mixes the Kyma with the K8S Cluster from CI/CD Service.
+
+You can choose to BUILD, or if already built you can DEPLOY.
+
+As you can see, a road is what connects your car to the amusement park.  If we make upgrades to the road, close sections, add on and off ramps, Kyma takes care of all that routing.  So as you can see, Kyma really does make a developers’ life easier.
