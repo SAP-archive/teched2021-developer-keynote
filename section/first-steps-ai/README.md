@@ -22,7 +22,7 @@ BER has the free tier option that lets you try out the service in your global ac
 
 ![BTP_BER_Free](btp_ber_freeplan.png)
 
-Once the setup is done you download the service_key which you need to interact with the BER service from your application. Put the downloaded service-key into the folder [__service_key__](__service_key__).
+Once the setup is done you download the service_key which you need to interact with the BER service from your application. Put the downloaded service-key into the folder [\_\_service_key\_\_](__service_key__).
 
 ![service_key](service_key.png)
 
