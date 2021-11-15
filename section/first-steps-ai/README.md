@@ -20,11 +20,11 @@ To setup the service I go to my global account in [BTP](https://cockpit.eu10.han
 
 BER has the free tier option that lets you try out the service in your global account without any costs and allows to upgrade to paid plan very easy too.
 
-![BTP_BER_Free](btp_ber_freeplan.png)
+![BTP_BER_Free](images/btp_ber_freeplan.png)
 
 Once the setup is done you download the service_key which you need to interact with the BER service from your application. Put the downloaded service-key into the folder [\_\_service_key\_\_](__service_key__).
 
-![service_key](service_key.png)
+![service_key](images/service_key.png)
 
 Now since the service is up and running, we can start with the fun part and program our first AI inference call. The jupyter notebook you can find here [pretrained_model_inference.ipynb](pretrained_model_inference.ipynb) 
 Therefore I'm using the python client SDK provided by the Business Entity Recognition service that you can get from [pypi.org](https://pypi.org/project/sap-business-entity-recognition-client-library/#description). Btw we also offer this for the other AI capabilities mentioned before.
