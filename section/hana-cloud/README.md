@@ -1,6 +1,6 @@
 # Combining external data with enterprise data in SAP HANA Cloud
 
-## Create `DATAGEEK` user
+## SQL code to be executed in SAP HANA Cloud, Data Lake IQ session
 
 ```SQL
 --DROP REMOTE SERVER MY_SOF_SERVER;
