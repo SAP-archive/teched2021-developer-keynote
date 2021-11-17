@@ -1,4 +1,6 @@
-# Combining external data with enterprise data in SAP HANA Cloud
+# SAP HANA Cloud, Data Lake
+
+For more information see: https://help.sap.com/viewer/a896c6a184f21015b5bcf4c7a967df07/LATEST/en-US/228c19ac890046ecbe8e38a540c0cb6b.html
 
 ## SQL code to be executed in SAP HANA Cloud, Data Lake IQ session
 
@@ -11,7 +13,7 @@ CREATE SCHEMA GDELT IN FILES_SERVICE;
 
 -- DROP TABLE GDELT.MENTIONS_PARTITIONED IN FILES_SERVICE;
 CREATE TABLE GDELT.MENTIONS_PARTITIONED (
-	GlobalEventID INTEGER,
+    GlobalEventID INTEGER,
     EventTimeDate BIGINT,
     MentionTimeDate BIGINT,
     MentionType INTEGER,
