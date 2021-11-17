@@ -1,10 +1,62 @@
 # Combining external data with enterprise data in SAP HANA Cloud
 
-rough demo: https://sap.sharepoint.com/:v:/s/100499/advocates/EQr-Bqo9qf1Fs0mX3UWttHwBNND0rFUv08aCH98ZHT3ruQ?e=Hy5GdQ
+## Create `DATAGEEK` user
 
-1.	Describe the task: Getting GDELT data into SAP HANA Cloud; and explaining why I am loading this data into Data Lake Files, instead of the database
-2.	Show I’ve been using pipelines in Data Intelligence to load this data
-3.	Tell it is WebHDFS-compatible, and that we have CLI tool to work with
-4.	Show the amount of data loaded
-5.	Show SQL-on-Files
-6.	Show combining SQL-on-Files with data in HANA db (not in this recorded rough demo yet)
+```SQL
+--DROP REMOTE SERVER MY_SOF_SERVER;
+CREATE REMOTE SERVER MY_SOF_SERVER CLASS 'FILES_SERVICE' READ ONLY value 'on';
+
+--DROP SCHEMA GDELT IN FILES_SERVICE;
+CREATE SCHEMA GDELT IN FILES_SERVICE;
+
+-- DROP TABLE GDELT.MENTIONS_PARTITIONED IN FILES_SERVICE;
+CREATE TABLE GDELT.MENTIONS_PARTITIONED (
+	GlobalEventID INTEGER,
+    EventTimeDate BIGINT,
+    MentionTimeDate BIGINT,
+    MentionType INTEGER,
+    MentionSourceName VARCHAR(1024),
+    MentionIdentifier VARCHAR(1024),
+    SentenceID INTEGER,
+    Actor1CharOffset INTEGER,
+    Actor2CharOffset INTEGER,
+    ActionCharOffset INTEGER,
+    InRawText INTEGER,
+    Confidence INTEGER,
+    MentionDocLen INTEGER,
+    MentionDocTone DOUBLE,
+    MentionDocTranslationInfo VARCHAR(1024),
+    Extras VARCHAR(1024),
+    YEAR INTEGER,
+    MONTH INTEGER,
+    DAY INTEGER,
+    FILE VARCHAR(255)
+) 
+AUTO REFRESH 
+IN FILES_SERVICE;
+
+-- DROP TABLE MENTIONS_PARTITIONED;
+CREATE EXISTING TABLE MENTIONS_PARTITIONED
+AT 'sof..GDELT.MENTIONS_PARTITIONED';
+
+-- ALTER TABLE GDELT.MENTIONS_PARTITIONED IN FILES_SERVICE DROP DATASOURCE MENTIONS_PARTITIONED;
+
+/* Parquet Directory */
+ALTER TABLE GDELT.MENTIONS_PARTITIONED IN FILES_SERVICE
+ADD DATASOURCE AS MENTIONS_PARTITIONED
+(YEAR FROM DIRECTORY $0, MONTH FROM DIRECTORY $1, DAY FROM DIRECTORY $2)
+PARQUET('hdlfs:///gdeltv2/parquet/mentions/')
+DATE('YYYYMMDDHHMISS')
+ENCODING 'UTF_8';
+
+/* Change the table to manual refresh, if needed */
+ALTER TABLE GDELT.MENTIONS_PARTITIONED IN FILES_SERVICE MANUAL REFRESH;
+REFRESH TABLE GDELT.MENTIONS_PARTITIONED IN FILES_SERVICE;
+
+/* Query data */
+SELECT MentionSourceName, ROUND(AVG(MentionDocTone),2) AS AvgTone
+FROM MENTIONS_PARTITIONED
+WHERE YEAR=DATEPART( YEAR, TODAY()) AND MONTH=DATEPART( MONTH, TODAY()) AND DAY=DATEPART( DAY, TODAY())
+GROUP BY MentionSourceName
+ORDER BY AvgTone DESC;
+```
