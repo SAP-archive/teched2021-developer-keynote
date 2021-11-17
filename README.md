@@ -16,6 +16,8 @@ Here are those sections, in no particular order.
 
 * [Command Line Magic](section/command-line-magic/) - learn how the command line is a powerful and scriptable environment that can help you get your job done faster, more directly, and perhaps most importantly, in a way that you can automate and customize. The primary focus for this section is on the CLI tool for the SAP Business Technology Platform - the BTP CLI.
 
+* [Data Lake in SAP HANA Cloud](section/hana-cloud) - find out how straightforward it can be to bring in files with a tabular data into your enterprise data landscape and explore using SQL-on-Files. See how the SAP HANA Cloud, Data Lake is used, with SAP Data Intelligence Cloud too. And there's a powerful command line tool as well as a REST API that is WebHDFS compatible.
+
 * [ABAP Extensibility with Embedded Steampunk](section/abap-goodness/) - learn how SAP S/4HANA Cloud customers and partners can extend SAP functionality in a cloud-ready way while continuing to keep the core clean by leveraging Embedded Steampunk.
 
 * [SAP Fiori elements apps for OData V4](section/frontend) - explore the code that leverages the flexible programming model to extend SAP Fiori elements apps for OData V4. This projects build on an existing CAP demo that can be found in this repo as well.
@@ -32,7 +34,6 @@ Here are those sections, in no particular order.
 
 * [Your first steps with AI](section/first-steps-ai) - you don't have to be a Data Scientist to be able to embrace and make use of AI services. See how easy it is to get started with pre-trained models from the AI Business Services on SAP Business Technology Platform.
 
-* [Combining external and enterprise data with SAP HANA Cloud](section/hana-cloud) - find out how straightforward it can be to bring in data from an external source and merge it into your enterprise data landscape. See how the SAP HANA Cloud, Data Lake is used, with SAP Data Intelligence Cloud too. And there's a powerful command line tool as well as an HTTP based API that is WebHDFS compatible.
 
 ## How to obtain support
 
