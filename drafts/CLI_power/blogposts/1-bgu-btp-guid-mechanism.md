@@ -4,7 +4,9 @@ _Learn how to use the btp CLI to determine resource GUIDs in your global account
 
 In the Developer Keynote during SAP TechEd, specifically in the Command Line Magic [section](https://github.com/SAP-samples/teched2021-developer-keynote#sections), I used a little mechanism I called `bgu`, to determine the GUIDs for various resources (a subaccount, and later, a directory) in my global account. Here you can see `bgu` in action:
 
-TODO pics of bgu in action
+![bgu used in command substitution for trial subaccount](bgu-trial.png)
+
+![bgu used in command substitution for messaging subaccount](bgu-messaging.png)
 
 I wanted to explain what this `bgu` mechanism is, how it works, because it may be useful to you too. And even if the mechanism itself turns out not to be useful for you, the background information and context should provide you with some extra knowledge about BTP and the command line interface tool, `btp`.
 
