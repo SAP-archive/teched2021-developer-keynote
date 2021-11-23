@@ -4,6 +4,8 @@
 
 Join the SAP Developer Advocates and friends as they highlight SAP technologies with a clear focus on features that accelerate the development process, improve the developer experience and increases developer productivity and efficiency when developing end to end solutions or extending existing applications.  Several aspects of application development will be represented including: AI/ML, ABAP, CAP, Data & Analytics, Low-Code/No-Code.
 
+📺 The Developer Keynote, and the on-stage Q&A discussion afterwards, is available for replay: [Improve Developers' Lives: Developer Keynote and Open Discussion](https://www.youtube.com/watch?v=kOFuwDSXBZg).
+
 ## Content
 
 In the context of the Developer Keynote, the content here is presented in the form of bite-sized sections, each one with a different angle, but all of them are focused on the same thing - making developers' lives better. The sections have been designed to be consumed quickly on the first pass, but are rich with layers that can be explored over time.

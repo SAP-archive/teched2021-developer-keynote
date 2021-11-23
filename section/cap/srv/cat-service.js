@@ -4,10 +4,10 @@ module.exports = async (srv) => {
     const { PerPersonal } = srv.entities
 
     srv.on(['READ'], PerPersonal, async (req) => {
-        if (req.query.SELECT.from.ref[0].where){
+        //Work around that's no longer needed in CAP 5.6 and higher
+/*          if (req.query.SELECT.from.ref[0].where){
             req.query.SELECT.from.ref[0].where[6].val += 'T00:00:00'
-        }
-
+        }  */
         let PerPersonalQuery = SELECT.from(req.query.SELECT.from)
             .limit(req.query.SELECT.limit)
         if (req.query.SELECT.where) {
@@ -28,7 +28,6 @@ module.exports = async (srv) => {
             personals = personal
         }else {personals[0] = personal}
 
-        console.log(personals)
         const getExtensionData = personals.map(async (item) => {
             const data = await SELECT.from(PerPersonal).where({ id: item.id })
             if (data[0]) {
