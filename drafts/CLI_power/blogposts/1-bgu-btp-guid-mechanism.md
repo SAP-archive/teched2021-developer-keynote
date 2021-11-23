@@ -155,7 +155,7 @@ When managing these subaccount and directory resources, GUIDs are used. We saw m
 
 * [Creating the subaccount within a directory](https://github.com/SAP-samples/teched2021-developer-keynote/tree/main/section/command-line-magic#creating-the-new-subaccount): `btp create accounts/subaccount --region us10 --display-name messaging --beta-enabled true --subdomain $(uuidgen) --directory $(bgu techedhouse)`
 
-In each case, instead of manually looking up the GUID for a resource, and then copy pasting that in for the value to use with `--to-subaccount`, `--to-directory` and `--directory` above, we can use the `bgu` mechanism to do that for us. As the [manual section on command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html) says:
+In each case, instead of manually looking up the GUID for a resource, and then copy pasting that in for the value to use with `--to-subaccount`, `--to-directory` and `--directory` above, the `bgu` mechanism was used to do that for us. As the [manual section on command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html) says:
 
 > "_command substitution allows the output of a command to replace the command itself_"
 
@@ -188,6 +188,8 @@ The `gethier` function just runs the following `btp` command:
 btp get accounts/global-account --show-hierarchy 2> /dev/null
 ```
 
+> I'm redirecting standard error (with `2>`) to `/dev/null`, to get rid of anything printed there. Currently the btp CLI outputs an "OK" to standard error, and I don't want to see that anywhere.
+
 The `--show-hierarchy` parameter is responsible for the lovely detail that you saw earlier. Let's look at an example of that detail before diving into the second line, so we know what we're dealing with. This example is from the script's comments above:
 
 ```
@@ -203,7 +205,7 @@ subaccount       b6501bff-e0ac-4fdf-8898-81f305d25335   trial           af39080b
 directory        e57c5b13-9480-4a68-9c04-a603d7a017a9   techedhouse     af39080b-...
 ```
 
-Right, so what is the second line doing? From a high level, it's looking for lines in this output starting with either "subaccount" or "directory", grabbing the GUID and the display name on the line that's found, and assigning them to two variables, `subtype` and `guid` respectively:
+Right, so what is the second line doing? From a high level, it's looking for lines in this output starting with either "subaccount" or "directory", grabbing the GUID and resource type on the line that's found, and assigning them to two variables, `subtype` and `guid` respectively:
 
 ```bash
 read -r subtype guid <<< "$(grep -P -o "^(subaccount|directory)\s+(\S+)(?=\s+$displayname)" <<< "$hierarchy")"
@@ -213,9 +215,9 @@ It looks a little complex, but if you stare at it for a few minutes, this patter
 
 > read [into two variables] from the results of searching and extracting values from the hierarchy data
 
-A couple of "here strings" in the form of the `<<<` construct are used (see section 3.6.7 of the [Bash manual section on redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)). Such "here strings" allow us to supply the value of a variable as input data to a command or builtin that would normally expect to read from standard input (STDIN). If you're interested in understanding here strings in relation to their siblings, have a look at [Input/output redirection, here documents and here strings](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/#ioredirection).
+A couple of "here strings" in the form of the `<<<` construct are used (see section 3.6.7 of the [Bash manual section on redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)). Such "here strings" allow us to supply the value of a variable as input data to a command or builtin that would normally expect to read from standard input (STDIN). If you're interested in understanding here strings and how they fit in, have a look at [Input/output redirection, here documents and here strings](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/#ioredirection).
 
-Knowing this, we can break the line down into parts. The first part is this, inside the command substitution (`$(...)`) which we now understand:
+Knowing this, we can break the line down into parts. The first part is this, inside the command substitution (`$(...)`):
 
 ```bash
 grep -P -o "^(subaccount|directory)\s+(\S+)(?=\s+$displayname)" <<< "$hierarchy"
@@ -231,8 +233,8 @@ Here are some notes to help you interpret this:
 * `\s` and `\S` - these are very common metacharacters used in regular expressions, and represent "a whitespace character" and "anything but a whitespace character" respectively
 * `+` - this is a modifier which represents "at least one, possibly more" and is different from `\*` which is "zero or more" and `?` which means "optional (i.e. either none or one occurrence)"
 * `$displayname` - because the entire pattern is enclosed in double quotes (`"..."`) the shell will substitute the value of this variable into the pattern; the variable holds the value specified when `btpguid` is invoked, i.e. the name of the resource we're looking for
-* `(...)` - these are matching brackets, called "capturing groups", to identify and grab what we want from the match
-* `(?=...)` - this is a positive lookahead assertion which allows us to say things like "must be followed by" without consuming anything in the match; note also that despite there being brackets, this is not itself a capturing group and therefore what's being asserted is not grabbed
+* `(...)` - these are matching parentheses, called "capturing groups", to identify and grab what we want from the match
+* `(?=...)` - this is a positive lookahead assertion which allows us to say things like "must be followed by" without consuming anything in the match; note also that despite there being parentheses, this is not itself a capturing group and therefore what's being asserted is not grabbed
 
 With that in mind, let's look again at the pattern, in quotes:
 
@@ -246,7 +248,7 @@ If the `displayname` variable contains "techedhouse", then, after parameter subs
 ^(subaccount|directory)\s+(\S+)(?=\s+techedhouse)
 ```
 
-Spoken out loud we might say "_the line must start with either 'subaccount' or 'directory', and whichever it is, we want to capture it; that must be directly followed by at least one whitespace character (`\s+`), followed by at least one non-whitespace character, and we want to capture those non-whitespace characters\*; oh, but also this must be followed (`(?=)`) by at least one whitespace character (`\s+`) and then 'techedhouse'_".
+Spoken out loud we might say "_the line must start with either 'subaccount' or 'directory' right at the beginning, and whichever it is, we want to capture it; that must be directly followed by at least one whitespace character (`\s+`), followed by at least one non-whitespace character (`\S+`), and we want to capture those non-whitespace characters\*; oh, but also this must be followed (`(?=`) by at least one whitespace character (`\s+`) and then 'techedhouse'_".
 
 \* those non-whitespace characters will be the GUID
 
@@ -258,7 +260,7 @@ Let's test this out manually, to see what happens. Let's assume that we're looki
 directory        2558794c-f8cd-4422-b071-3b21c2922a02
 ```
 
-Note that the whitespace and "techedhouse" inside the positive lookahead assertion is not captured and therefore we don't see it in the output.
+Note that the whitespace and "techedhouse" inside the positive lookahead assertion (i.e. `(?=\s+techedhouse)`) is not captured and therefore we don't see it as a third value in the output.
 
 With the two values output like this:
 
@@ -274,5 +276,25 @@ read -r subtype guid <<< "directory        2558794c-f8cd-4422-b071-3b21c2922a02"
 
 And guess what - after this, the `subtype` variable will contain "directory" and the `guid` variable will contain "2558794c-f8cd-4422-b071-3b21c2922a02". Nice!
 
-In case you're wondering about the `-r` option to the `read` builtin, it's to stop any backslashes in the input being interpreted inappropriately. I wrote about this in a recent post on my [Autodidactics blog](https://qmacro.org/autodidactics/) blog - see [The read command](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/#readcommand) section of [Exploring fff part 2 - get_ls_colors](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/).
+In case you're wondering about the `-r` option to the `read` builtin, it's to stop any backslashes in the input being interpreted inappropriately. I wrote about this in a recent post on my [Autodidactics blog](https://qmacro.org/autodidactics/) - see [The read command](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/#readcommand) section of [Exploring fff part 2 - get_ls_colors](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/).
 
+## Wrapping up this part
+
+We can see how the power of the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) helps us prepare, execute, and handle output of executables on the command line. Here we put together just a few lines to help us level up and be even more efficient, by allowing us to determine our SAP Business Technology Platform account's resource GUIDs with zero effort, and use those determined GUIDs in the context of other commands.
+
+In part 2 we'll learn a little bit more about the Unix Philosophy and then examine alternative output formats for complex data structures and relationships; formats that are more predictable and - with the right tools - more reliably parseable.
+
+## Further reading and viewing
+
+Here's a quick list of resources that you may wish to consume, relating to what you've read in this post:
+
+* The replay of the SAP TechEd Developer Keynote itself: [Improve Developers' Lives: Developer Keynote and Open Discussion](https://www.youtube.com/watch?v=kOFuwDSXBZg)
+* A link to the part of that Developer Keynote replay which goes directly to the relevant demo part: [Command Line Magic](https://youtu.be/kOFuwDSXBZg?t=193)
+* The SAP btp CLI branch of our SAP Tech Bytes repository on GitHub, which has links to related blog posts: [SAP btp CLI](https://github.com/SAP-samples/sap-tech-bytes/tree/2021-09-01-btp-cli)
+* The official place to download the btp CLI: [SAP Development Tools - Cloud](https://tools.hana.ondemand.com/#cloud)
+* A script that will download, unpack and set up the btp CLI for you: [getbtpcli](https://github.com/SAP-samples/sap-tech-bytes/blob/2021-09-01-btp-cli/getbtpcli)
+* A mini-series on the SAP btp CLI from the Hands-on SAP Dev show on the SAP Developers YouTube channel: [The SAP btp CLI](https://www.youtube.com/playlist?list=PL6RpkC85SLQDXx827kdjKc6HRvdMRZ8P5)
+* A reference manual for Bash: [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/index.html)
+* Documentation from the SAP Help Portal: [Setting up a Trial Account via the Command Line [Feature Set B]](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/a21360fa19714751a7c49c796d39ac3d.html?locale=en-US&state=DRAFT&version=Cloud)
+* The official SAP btp CLI documentation: [Account Administration Using the SAP BTP Command Line Interface (btp CLI) [Feature Set B]](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/7c6df2db6332419ea7a862191525377c.html?locale=en-US&version=Cloud)
+* More deep dives into Bash script arcana: [Exploring fff part 1 - main](https://qmacro.org/autodidactics/2021/09/03/exploring-fff-part-1-main/) and [Exploring fff part 2 - get_ls_colors](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/)
