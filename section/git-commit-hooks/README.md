@@ -30,26 +30,26 @@ yarn add --dev prettier pretty-quick
 npm install --save-dev prettier pretty-quick
 ```
 
-This is just what I needed to set up Prettier in my repo as it was being added fresh. It can be added manually as well. 
+This is just what I needed to set up Prettier in my repo as it was being added fresh. It can be added manually as well.
 
 **Mac Command**
 ```
-echo '{"singleQuote": true}'> .prettierrc.json && echo '# Ignore artifacts: 
+echo '{"singleQuote": true}'> .prettierrc.json && echo '# Ignore artifacts:
 build
 coverage'> .prettierignore
 ```
 
 ## Hooks
 The hooks I used to set up the formatting and unit tests being run before every commit. Important to note that if you set up unit tests to run it should abort at the end. I ran into an issue where the command was watching for the tests to change and this caused my commit to never fail or succeed so it ran indefinitely.
-This sets up the formatter. Notice how it uses `set` over `add` as the second command does. This is because this was the first hook I was adding. The `set` command will overwrite all commands in the file. I also had the files format first and the unit tests run second. This is because regardless of if the unit tests pass or fail, I want my files to be formatted. If any of the commands error out, the commit will be aborted and no other hooks will be run, therefore, my unit tests are run last. 
+This sets up the formatter. Notice how it uses `set` over `add` as the second command does. This is because this was the first hook I was adding. The `set` command will overwrite all commands in the file. I also had the files format first and the unit tests run second. This is because regardless of if the unit tests pass or fail, I want my files to be formatted. If any of the commands error out, the commit will be aborted and no other hooks will be run, therefore, my unit tests are run last.
 ### Yarn
 ```
-yarn husky set ./husky/pre-commit "npx pretty-quick --staged"
+yarn husky set .husky/pre-commit "npx pretty-quick --staged"
 yarn husky add .husky/pre-commit "yarn test --watchAll=false"
 ```
 
 ### NPM
 ```
-npx husky set ./husky/pre-commit "npx pretty-quick --staged"
+npx husky set .husky/pre-commit "npx pretty-quick --staged"
 npx husky add .husky/pre-commit "npm test --watchAll=false"
 ```
