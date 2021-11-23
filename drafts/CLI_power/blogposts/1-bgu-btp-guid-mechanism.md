@@ -1,14 +1,14 @@
-# Getting BTP resource GUIDs with the BTP CLI - part 1
+# Getting BTP resource GUIDs with the btp CLI - part 1
 
 _Learn how to use the btp CLI to determine resource GUIDs in your global account. This post is part 1, covering the `bgu` mechanism._
 
-In the Developer Keynote during SAP TechEd, specifically in the Command Line Magic [section](https://github.com/SAP-samples/teched2021-developer-keynote#sections), I used a little mechanism I called `bgu` (for "btp GUID"), to determine the GUIDs for various resources (a subaccount, and later, a directory) in my global account. Here you can see `bgu` in action:
+In the [Developer Keynote](https://reg.sapevents.sap.com/flow/sap/sapteched2021/portal/page/sessions/session/1632238684525001QKhY) during SAP TechEd, specifically in the Command Line Magic [section](https://github.com/SAP-samples/teched2021-developer-keynote#sections), I used a little mechanism I called `bgu` (for "btp GUID"), to determine the GUIDs for various resources (a subaccount, and later, a directory) in my global account. Here you can see `bgu` in action:
 
 ![bgu used to show GUID of trial subaccount](bgu-trial.png)
 
 ![bgu used in command substitution for messaging subaccount](bgu-messaging.png)
 
-I wanted to explain what this `bgu` mechanism is, how it works, because it may be useful to you too. Moreover, the background information and context should provide you with some extra knowledge about BTP and the command line interface tool, `btp`.
+In this post I wanted to explain what this `bgu` mechanism is and how it works, because it may be useful to you too. Moreover, the background information and context should provide you with some extra knowledge about BTP and the command line interface tool, `btp`.
 
 ## Starting at a high level
 
@@ -169,7 +169,7 @@ then the command `bgu trial` is executed, and the output is then substituted as 
 
 ## Determining the GUIDs
 
-Now that we understand the structure of resources in BTP accounts, we can turn our attention to the heart of the `btpguid` script. This incarnation of the script, which was used in the Developer Keynote, invokes the following btp CLI command, and parses some of its output:
+Now that we understand the structure of resources in BTP accounts, we can turn our attention to the heart of the `btpguid` script. This incarnation of the script, which was used in the Developer Keynote, invokes a btp CLI command (which we'll see shortly), and parses some of its output:
 
 ```
 hierarchy="$(gethier)" || { btp login && hierarchy="$(gethier)"; }
@@ -205,7 +205,7 @@ subaccount       b6501bff-e0ac-4fdf-8898-81f305d25335   trial           af39080b
 directory        e57c5b13-9480-4a68-9c04-a603d7a017a9   techedhouse     af39080b-...
 ```
 
-Right, so what is the second line doing? From a high level, it's looking for lines in this output starting with either "subaccount" or "directory", grabbing the GUID and resource type on the line that's found, and assigning them to two variables, `subtype` and `guid` respectively:
+Right, so what is the second line doing? From a high level, it's looking for lines in this output starting with either "subaccount" or "directory", grabbing the GUID and resource type on the line that's found, and assigning them to two variables, `guid` and `subtype` respectively:
 
 ```bash
 read -r subtype guid <<< "$(grep -P -o "^(subaccount|directory)\s+(\S+)(?=\s+$displayname)" <<< "$hierarchy")"
@@ -217,7 +217,7 @@ It looks a little complex, but if you stare at it for a few minutes, this patter
 
 A couple of "here strings" in the form of the `<<<` construct are used (see section 3.6.7 of the [Bash manual section on redirections](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)). Such "here strings" allow us to supply the value of a variable as input data to a command or builtin that would normally expect to read from standard input (STDIN). If you're interested in understanding here strings and how they fit in, have a look at [Input/output redirection, here documents and here strings](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/#ioredirection).
 
-Knowing this, we can break the line down into parts. The first part is this, inside the command substitution (`$(...)`):
+Knowing this, we can break the line down into parts. The first part is this, inside the command substitution construct `$(...)`:
 
 ```bash
 grep -P -o "^(subaccount|directory)\s+(\S+)(?=\s+$displayname)" <<< "$hierarchy"
@@ -225,16 +225,18 @@ grep -P -o "^(subaccount|directory)\s+(\S+)(?=\s+$displayname)" <<< "$hierarchy"
 
 Here are some notes to help you interpret this:
 
-* `grep` - this searches for patterns in data
-* `-P` - this tells `grep` that we're going to use a Perl Compatible Regular Expression (PCRE) - these are the most powerful and flexible and include the [positive lookahead assertion](https://www.regular-expressions.info/lookaround.html) construct `(?=...)`
-* `-o` - this tells `grep` to output not the entire matched line, but only the parts that are matched and captured (via parentheses)
-* `"$hierarchy"` - this is the value of the `hierarchy` variable that holds the output from `btp get accounts/global-account --show-hierarchy`
-* `^` - this anchors the pattern to the beginning of the line (in other words, either "subaccount" or "directory" needs to be right at the start of the line for the match to be successful)
-* `\s` and `\S` - these are very common metacharacters used in regular expressions, and represent "a whitespace character" and "anything but a whitespace character" respectively
-* `+` - this is a modifier which represents "at least one, possibly more" and is different from `\*` which is "zero or more" and `?` which means "optional (i.e. either none or one occurrence)"
-* `$displayname` - because the entire pattern is enclosed in double quotes (`"..."`) the shell will substitute the value of this variable into the pattern; the variable holds the value specified when `btpguid` is invoked, i.e. the name of the resource we're looking for
-* `(...)` - these are matching parentheses, called "capturing groups", to identify and grab what we want from the match
-* `(?=...)` - this is a positive lookahead assertion which allows us to say things like "must be followed by" without consuming anything in the match; note also that despite there being parentheses, this is not itself a capturing group and therefore what's being asserted is not grabbed
+|Part|Description|
+|-|-|
+|`grep`|this searches for patterns in data|
+|`-P`|this tells `grep` that we're going to use a Perl Compatible Regular Expression (PCRE)|these are the most powerful and flexible and include the [positive lookahead assertion](https://www.regular-expressions.info/lookaround.html) construct `(?=...)`|
+|`-o`|this tells `grep` to output not the entire matched line, but only the parts that are matched and captured (via parentheses)|
+|`"$hierarchy"`|this is the value of the `hierarchy` variable that holds the output from `btp get accounts/global-account --show-hierarchy`|
+|`^`|this anchors the pattern to the beginning of the line (in other words, either "subaccount" or "directory" needs to be right at the start of the line for the match to be successful)|
+|`\s` and `\S`|these are very common metacharacters used in regular expressions, and represent "a whitespace character" and "anything but a whitespace character" respectively|
+|`+`|this is a modifier which represents "at least one, possibly more" and is different from `\*` which is "zero or more" and `?` which means "optional (i.e. either none or one occurrence)"|
+|`$displayname`|because the entire pattern is enclosed in double quotes (`"..."`) the shell will substitute the value of this variable into the pattern; the variable holds the value specified when `btpguid` is invoked, i.e. the name of the resource we're looking for|
+|`(...)`|these are matching parentheses, called "capturing groups", to identify and grab what we want from the match|
+|`(?=...)`|this is a positive lookahead assertion which allows us to say things like "must be followed by" without consuming anything in the match; note also that despite there being parentheses, this is not itself a capturing group and therefore what's being asserted is not grabbed|
 
 With that in mind, let's look again at the pattern, in quotes:
 
@@ -274,13 +276,13 @@ we can better understand what's happening with the `read` builtin; let's substit
 read -r subtype guid <<< "directory        2558794c-f8cd-4422-b071-3b21c2922a02"
 ```
 
-And guess what - after this, the `subtype` variable will contain "directory" and the `guid` variable will contain "2558794c-f8cd-4422-b071-3b21c2922a02". Nice!
+And guess what - after this, the `subtype` variable will contain "directory" and the `guid` variable will contain "2558794c-f8cd-4422-b071-3b21c2922a02". And then with the `echo` a little bit further on in the script, this GUID is emitted to standard output before the script ends. Nice!
 
 In case you're wondering about the `-r` option to the `read` builtin, it's to stop any backslashes in the input being interpreted inappropriately. I wrote about this in a recent post on my [Autodidactics blog](https://qmacro.org/autodidactics/) - see [The read command](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/#readcommand) section of [Exploring fff part 2 - get_ls_colors](https://qmacro.org/autodidactics/2021/11/07/exploring-fff-part-2-get-ls-colors/).
 
 ## Wrapping up this part
 
-We can see how the power of the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) helps us prepare, execute, and handle output of executables on the command line. Here we put together just a few lines to help us level up and be even more efficient, by allowing us to determine our SAP Business Technology Platform account's resource GUIDs with zero effort, and use those determined GUIDs in the context of other commands.
+We can see how the power of the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) helps us prepare, run, and handle output of executables on the command line. Here we put together just a few lines to help us level up and be even more efficient, by allowing us to determine our SAP Business Technology Platform account's resource GUIDs with zero effort, and use those determined GUIDs in the context of other commands.
 
 In part 2 we'll learn a little bit more about the Unix Philosophy and then examine alternative output formats for complex data structures and relationships; formats that are more predictable and - with the right tools - more reliably parseable.
 
