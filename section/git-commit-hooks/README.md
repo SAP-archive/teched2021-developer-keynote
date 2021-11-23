@@ -6,9 +6,17 @@ With [Husky](https://typicode.github.io/husky/#/), you can add any number of com
 
 ## Setting up Husky
 Setting up Husky is incredibly easy as Husky provides a command that will install, initialize, and create all files needed for Husky to start working. There is a manual process if the single set up command doesn't work so if you run into problems, you can try the set up step by step.
+
+### Yarn
 ```
 npx husky-init && yarn
 ```
+
+### NPM
+```
+npx husky-init && npm install
+```
+
 
 ## Setting up Formatting
 To set up [Prettier](https://prettier.io/), and [pretty-quick](https://github.com/azz/pretty-quick). If Prettier has already been set up in the repo, the only necessary package that should be added is pretty-quick.
