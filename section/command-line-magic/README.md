@@ -268,13 +268,13 @@ OK, a choice of providers; I'll go with region `us10` for this project. So I'll 
 > Starts typing the command but does NOT yet press Enter
 
 ```
-; btp create accounts/subaccount --region us10 --display-name messaging --beta-enabled true --subdomain 26e3dac3-ed44-4daa-9ff1-dc49435b21f9
+; btp create accounts/subaccount --region us10 --display-name messaging --beta-enabled true --subdomain $(uuidgen)
 ```
 
 Oh, and one more thing, I want this new subaccount to be created within the TechEd House directory, so let me specify that too:
 
 ```
-; btp create accounts/subaccount --region us10 --display-name messaging --beta-enabled true --subdomain 26e3dac3-ed44-4daa-9ff1-dc49435b21f9 --directory $(bgu techedhouse)
+; btp create accounts/subaccount --region us10 --display-name messaging --beta-enabled true --subdomain $(uuidgen) --directory $(bgu techedhouse)
 
 Creating a subaccount in 59b766f4-8c29-403e-a6ce-7b7d6a7ecaab...
 
