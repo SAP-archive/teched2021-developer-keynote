@@ -8,13 +8,15 @@ In the [Developer Keynote](https://reg.sapevents.sap.com/flow/sap/sapteched2021/
 
 ![bgu used in command substitution for messaging subaccount](bgu-messaging.png)
 
-In this post I wanted to explain what this `bgu` mechanism is and how it works, because it may be useful to you too. Moreover, the background information and context should provide you with some extra knowledge about BTP and the command line interface tool, `btp`.
+(In case you're interested in re-watching this section of the Developer Keynote, there's a link in the [Further reading and viewing](#furtherreading) section later.)
+
+In this post I explain what this `bgu` mechanism is and how it works, because it may be useful to you too. Moreover, the background information and context should provide you with some extra knowledge about BTP and the command line interface tool, `btp`.
 
 ## Starting at a high level
 
 The `bgu` mechanism is actually a function in my shell environment, which calls a script called `btpguid`. This in turn uses the btp CLI to examine the global account's resource hierarchy and pick information out of it - specifically the GUID for a given resource name. Let's break that down.
 
-We can ask what `bgu` is with the Bash shell's `type` builtin, which itself is an opportunity for us to enjoy a little bit of meta:
+We can ask what `bgu` is with the Bash shell's `type` builtin. This itself is an opportunity for us to enjoy a little bit of meta before we start, by asking what the type of `type` is:
 
 ```bash
 ; type type
@@ -35,13 +37,15 @@ bgu ()
 }
 ```
 
-So there we are, `bgu` is a function that I've defined. All it does is call `btpguid` with all of the arguments that were passed:
+So there we are, `bgu` is a function that I've defined and made available in my shell. All it does is call `btpguid` with all of the arguments that were passed:
 
 ```bash
 btpguid "$@"
 ```
 
-Then, depending on circumstances, it calls another script (`btpctx`) to write some info to a status file. This is not relevant here (it's related to my `tmux`-based status line in my terminal) so let's just focus on the call to `btpguid`. What is that? Let's find out:
+Then, depending on circumstances, it calls another script (`btpctx`) to write some info to a status file. This is not relevant here (it's related to my `tmux`-based status line in my terminal) so let's just focus on the call to `btpguid`.
+
+So what is `btpguid`? Let's find out:
 
 ```bash
 ; type btpguid
@@ -139,7 +143,7 @@ Let's look at an example. The structure that existed at the end of the Command L
 │  │  ├─ messaging (3ea88c9c-010b-4bf0-9fdb-5c29c9087660 - subaccount)
 ```
 
-We saw, very briefly, a representation of this structure in the BTP cockpit too, right at the end of the section:
+We saw, very briefly, a representation of this structure in the BTP cockpit too, right at the end of this section of the keynote:
 
 ![structure represented in the cockpit](hierarchy.png)
 
@@ -147,7 +151,7 @@ Staring at this structure for a few seconds, we see that it's made up of directo
 
 ## Resources, GUIDs and command substitution
 
-When managing these subaccount and directory resources, GUIDs are used. We saw multiple examples where GUIDs are required - here are three of them. However, note that each time, instead of finding and specifying a GUID manually, a [command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html) (`$(...)`) is used, to make things easier:
+When managing these subaccount and directory resources, GUIDs are used. We saw multiple examples where GUIDs are required - here are three of them. However, note that each time, instead of finding and specifying a GUID manually, a [command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html) (they look like this: `$(...)`) is used, to make things easier:
 
 * [Reducing quota for a subaccount](https://github.com/SAP-samples/teched2021-developer-keynote/tree/main/section/command-line-magic#reducing-existing-entitlement-quota-to-zero): `btp assign accounts/entitlement --for-service enterprise-messaging --plan dev --to-subaccount $(bgu trial) --amount 0`
 
@@ -155,7 +159,7 @@ When managing these subaccount and directory resources, GUIDs are used. We saw m
 
 * [Creating the subaccount within a directory](https://github.com/SAP-samples/teched2021-developer-keynote/tree/main/section/command-line-magic#creating-the-new-subaccount): `btp create accounts/subaccount --region us10 --display-name messaging --beta-enabled true --subdomain $(uuidgen) --directory $(bgu techedhouse)`
 
-In each case, instead of manually looking up the GUID for a resource, and then copy pasting that in for the value to use with `--to-subaccount`, `--to-directory` and `--directory` above, the `bgu` mechanism was used to do that for us. As the [manual section on command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html) says:
+In each case, instead of manually looking up the GUID for a resource, and then copy-pasting that in for the value to use with `--to-subaccount`, `--to-directory` and `--directory` above, the `bgu` mechanism was used to do that for us. As the [manual section on command substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html) says:
 
 > "_command substitution allows the output of a command to replace the command itself_"
 
@@ -165,7 +169,9 @@ In other words, when you see something like this (taken from the first example a
 --to-subaccount $(bgu trial)
 ```
 
-then the command `bgu trial` is executed, and the output is then substituted as the value for the `--to-subaccount` parameter. (In case you're wondering, command substitution comes in two forms: ```...``` and `$(...)`; the former is now deprecated).
+then what happens is that the command `bgu trial` is executed, and the output is then substituted as the value for the `--to-subaccount` parameter.
+
+(In case you're wondering, command substitution comes in two forms: ```...``` and `$(...)`; the former is now deprecated.)
 
 ## Determining the GUIDs
 
@@ -227,16 +233,17 @@ Here are some notes to help you interpret this:
 
 |Part|Description|
 |-|-|
-|`grep`|this searches for patterns in data|
+|`grep`|this is the command to search for patterns in data|
 |`-P`|this tells `grep` that we're going to use a Perl Compatible Regular Expression (PCRE)|these are the most powerful and flexible and include the [positive lookahead assertion](https://www.regular-expressions.info/lookaround.html) construct `(?=...)`|
 |`-o`|this tells `grep` to output not the entire matched line, but only the parts that are matched and captured (via parentheses)|
 |`"$hierarchy"`|this is the value of the `hierarchy` variable that holds the output from `btp get accounts/global-account --show-hierarchy`|
 |`^`|this anchors the pattern to the beginning of the line (in other words, either "subaccount" or "directory" needs to be right at the start of the line for the match to be successful)|
 |`\s` and `\S`|these are very common metacharacters used in regular expressions, and represent "a whitespace character" and "anything but a whitespace character" respectively|
-|`+`|this is a modifier which represents "at least one, possibly more" and is different from `\*` which is "zero or more" and `?` which means "optional (i.e. either none or one occurrence)"|
+|`+`|this is a modifier which represents "at least one, possibly more" and is different from `\*` which is "zero or more" and `?` which means "optional (i.e. either no occurrence or just one occurrence)"|
 |`$displayname`|because the entire pattern is enclosed in double quotes (`"..."`) the shell will substitute the value of this variable into the pattern; the variable holds the value specified when `btpguid` is invoked, i.e. the name of the resource we're looking for|
 |`(...)`|these are matching parentheses, called "capturing groups", to identify and grab what we want from the match|
 |`(?=...)`|this is a positive lookahead assertion which allows us to say things like "must be followed by" without consuming anything in the match; note also that despite there being parentheses, this is not itself a capturing group and therefore what's being asserted is not grabbed|
+|`<<<`|this is a here string construct that provides the input to `grep` from the value of the `hierarchy` variable instead of from standard input|
 
 With that in mind, let's look again at the pattern, in quotes:
 
@@ -250,7 +257,7 @@ If the `displayname` variable contains "techedhouse", then, after parameter subs
 ^(subaccount|directory)\s+(\S+)(?=\s+techedhouse)
 ```
 
-Spoken out loud we might say "_the line must start with either 'subaccount' or 'directory' right at the beginning, and whichever it is, we want to capture it; that must be directly followed by at least one whitespace character (`\s+`), followed by at least one non-whitespace character (`\S+`), and we want to capture those non-whitespace characters\*; oh, but also this must be followed (`(?=`) by at least one whitespace character (`\s+`) and then 'techedhouse'_".
+Spoken out loud we might say: _the line must start with either 'subaccount' or 'directory' right at the beginning, and whichever it is, we want to capture it; that must be directly followed by at least one whitespace character (`\s+`), followed by at least one non-whitespace character (`\S+`), and we want to capture those non-whitespace characters\*; oh, but also this must be followed (`(?=`) by at least one whitespace character (`\s+`) and then 'techedhouse'_.
 
 \* those non-whitespace characters will be the GUID
 
@@ -286,6 +293,7 @@ We can see how the power of the [Unix Philosophy](https://en.wikipedia.org/wiki/
 
 In part 2 we'll learn a little bit more about the Unix Philosophy and then examine alternative output formats for complex data structures and relationships; formats that are more predictable and - with the right tools - more reliably parseable.
 
+<a name="furtherreading"></a>
 ## Further reading and viewing
 
 Here's a quick list of resources that you may wish to consume, relating to what you've read in this post:
