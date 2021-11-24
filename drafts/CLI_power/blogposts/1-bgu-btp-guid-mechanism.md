@@ -300,6 +300,7 @@ Here's a quick list of resources that you may wish to consume, relating to what 
 
 * The replay of the SAP TechEd Developer Keynote itself: [Improve Developers' Lives: Developer Keynote and Open Discussion](https://www.youtube.com/watch?v=kOFuwDSXBZg)
 * A link to the part of that Developer Keynote replay which goes directly to the relevant demo part: [Command Line Magic](https://youtu.be/kOFuwDSXBZg?t=193)
+* More on the Developer Keynote in this blog post from [Thomas Jung](https://people.sap.com/thomas.jung): [SAP TechEd Developer Keynote](https://blogs.sap.com/2021/11/17/sap-teched-2021-developer-keynote/)
 * The SAP btp CLI branch of our SAP Tech Bytes repository on GitHub, which has links to related blog posts: [SAP btp CLI](https://github.com/SAP-samples/sap-tech-bytes/tree/2021-09-01-btp-cli)
 * The official place to download the btp CLI: [SAP Development Tools - Cloud](https://tools.hana.ondemand.com/#cloud)
 * A script that will download, unpack and set up the btp CLI for you: [getbtpcli](https://github.com/SAP-samples/sap-tech-bytes/blob/2021-09-01-btp-cli/getbtpcli)
