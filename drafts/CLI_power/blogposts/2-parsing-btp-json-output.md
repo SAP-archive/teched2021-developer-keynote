@@ -453,8 +453,9 @@ Getting there!
 
 To be a drop-in replacement for the previous logic, we should really be returning these in a whitespace separated construction on the same line, in the same way that they were returned in part 1 - see the [Determining the GUIDs](https://blogs.sap.com/2021/11/24/getting-btp-resource-guids-with-the-btp-cli-part-1/#determining-the-guids) section for details.
 
-We can easily do with with the `@tsv` [format string](https://stedolan.github.io/jq/manual/v1.5/#Formatstringsandescaping), which will turn an array like this into a nice tab separated values construct. When invoking this, we want to use the `--raw-output` option (short form is `-r`) to have the output written directly to standard output rather than being formatted as a JSON string inside quotes:
+This can be done with with the `@tsv` [format string](https://stedolan.github.io/jq/manual/v1.5/#Formatstringsandescaping), which will turn an array like this into a nice tab separated values construct. When invoking this, we want to use the `--raw-output` option (short form is `-r`) to have the output written directly to standard output rather than being formatted as a JSON string inside quotes:
 
+```
 ; jq --raw-output --arg displayname "messaging" '
 recurse
 | objects
