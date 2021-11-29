@@ -74,6 +74,8 @@ For example, if I wanted to grab the display names of all the subaccounts in my 
 
 Recently, on my Autodidactics blog, I wrote about this very challenge of parsing text output that was brittle in the post [Embracing jq and JSON](https://qmacro.org/autodidactics/2021/10/29/embracing-jq-and-json/) (see [Where I write my posts](#where-i-write-my-posts) for more info). The subject at hand was the same - the ouptut of `btp get account/global-account --show-hierarchy`, although what I was trying to extract was slightly different. Most importantly though, it demonstrated that correctly and reliably extracting a value with spaces (the resource display name 'this and that') was not straightforward.
 
+> Some of you may think, and I'd agree, that one way that this would normally be tackled is to use tabs as field separators; this would address the situation and
+
 What it also demonstrated was that taking the JSON output approach was preferable. Initially, as I described in that post, the prospect was a little daunting, as the structure represented in JSON consisted of nested arrays of objects. But a little digging into the [jq manual](https://stedolan.github.io/jq/manual/) showed me functions that would help out.
 
 So what I want to do here is find a drop-in replacement for these two lines that we looked at in detail in [part 1](https://blogs.sap.com/2021/11/24/getting-btp-resource-guids-with-the-btp-cli-part-1/):
@@ -160,7 +162,7 @@ For the sake of exploration, let's assume we have the JSON above in a file calle
 
 #### Step 1 - flatten the structure
 
-To flatten the struture, I've taken to using the `recurse` function; here's what it does:
+To flatten the struture, I've taken to using the `recurse` function; here's what it does (a lot of the output has been omitted for brevity):
 
 ```
 ; jq 'recurse' hierarchy.json
@@ -199,7 +201,7 @@ As you can see, it descends the entire structure and emits everything it finds. 
 
 #### Step 2 - identify the objects
 
-To narrow down this large amount of output to just the objects, we can use the aptly named `objects` function which will emit only objects that pass through it, discarding anything else (like those simple strings such as "ROOT" and "1a99110dtrial" we see above). Here we go:
+To narrow down this large amount of output to just the objects, we can use the aptly named `objects` function which will emit only objects that pass through it, discarding anything else (like those simple strings such as "ROOT", "eu10" and "1a99110dtrial" we see above). Here we go:
 
 ```
 ; jq 'recurse | objects'
@@ -431,6 +433,7 @@ We can easily pick out the GUID, it's in the `guid` property. But to determine t
 
 Here's that logic in action and in context:
 
+```
 ; jq --arg displayname "messaging" '
 recurse
 | objects
@@ -471,9 +474,60 @@ In case you're wondering what we'd get without the `--raw-output` option, it's t
 
 And yes, that is valid JSON, which is what `jq` will try to emit by default.
 
+## Adjusting the btpguid script
+
+It's time to adapt the existing `btpguid` script to use this new approach, as a drop-in replacement. The existing script in its entirety is listed in part 1, in [The btpguid script](https://blogs.sap.com/2021/11/24/getting-btp-resource-guids-with-the-btp-cli-part-1/#the-btpguid-script) section. We need to make three alterations:
+
+* modify the `gethier` function to specify the JSON output format
+* add a new function `parse` to use the `jq` script to parse the JSON hierarchy and ouptut the subtype and GUID
+* modify the `read` line inside the `main` function to take input from what this new `parse` function produces
+
+### Modifying the gethier function
+
+We just need to add `--format json` to the invocation, so the resulting `gethier` function now looks like this:
+
+```bash
+gethier() {
+  btp --format json get accounts/global-account --show-hierarchy 2> /dev/null
+}
+```
+
+### Adding a new parse function
+
+To keep things separate and more readable, the new `parse` function encapsulates the invocation of `jq` on the hierarchy data, which will now be in JSON format. The entire function expects a display name for which to search, and the JSON hierarchy data, and looks like this:
+
+```bash
+parse() {
+
+  local displayname=$1
+  local hierarchy=$2
+
+  jq --raw-output --arg displayname "$displayname" '
+    recurse
+    | objects
+    | select(.parentGuid? or .parentGUID?)
+    | select(.displayName == $displayname)
+    | [if .region? then "subaccount" else "directory" end, .guid]
+    | @tsv
+  ' <<< "$hierarchy"
+
+}
+```
+
+### Adjusting the main function
+
+Now all we need to do is adjust the line with `read` to take input from the invocation of this new `parse` function. It looks like this (the first line is unchanged, and is just listed here to provide a bit of context):
+
+```bash
+  hierarchy="$(gethier)" || { btp login && hierarchy="$(gethier)"; }
+  read -r subtype guid <<< "$(parse "$displayname" "$hierarchy")"
+```
+
 ## Wrapping up
 
 So there we have it. Using the btp CLI's `--format json` option, with a bit of `jq` scripting, gives us what we want. The jq language itself is more fully formed than you might think - and given the relevance that JSON has today, both in output from tools like this, responses from API endpoints, and representations of declarative definitions for cloud services and clusters, I'd suggest that it's worth investing a little bit of time into being able to wield a few `jq` scripts, even if they are one-liners.
+
+And talking of `jq` scripts, I'm sure there are other ways of pulling out the information from the JSON using `jq`. If you've taken a different approach, I'd love to hear about it - please share what you've done in the comments. Thanks, and happy coding!
 
 ---
 
