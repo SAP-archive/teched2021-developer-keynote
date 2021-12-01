@@ -1,6 +1,8 @@
-# Parsing BTP CLI JSON output to retrieve resource GUIDs
+# Getting BTP resource GUIDs with the btp CLI – part 2 - JSON and jq
 
-_In this second part of a 2-part blog post series on getting BTP resource GUIDs with the BTP CLI, we look at how the CLI supports JSON output, why it's a good choice, and how to parse that._
+_In this second part of a 2-part blog post series on getting BTP resource GUIDs with the btp CLI, we look at how the CLI supports JSON output, why it's a good choice, and how to parse that._
+
+If you haven't done already, take a look at [part 1](https://blogs.sap.com/2021/11/24/getting-btp-resource-guids-with-the-btp-cli-part-1/) before reading this part.
 
 ## The Unix philosophy and alternative output formats
 
@@ -74,7 +76,7 @@ For example, if I wanted to grab the display names of all the subaccounts in my 
 
 Recently, on my Autodidactics blog, I wrote about this very challenge of parsing text output that was brittle in the post [Embracing jq and JSON](https://qmacro.org/autodidactics/2021/10/29/embracing-jq-and-json/) (see [Where I write my posts](#where-i-write-my-posts) for more info). The subject at hand was the same - the ouptut of `btp get account/global-account --show-hierarchy`, although what I was trying to extract was slightly different. Most importantly though, it demonstrated that correctly and reliably extracting a value with spaces (the resource display name 'this and that') was not straightforward.
 
-> Some of you may think, and I'd agree, that one way that this would normally be tackled is to use tabs as field separators; this would address the situation and
+> Some of you may think, and I'd agree, that one way that this would normally be tackled is to use tabs as field separators; this would address the situation and is indeed a standard part of how the Unix toolchain operates - look at what the default delimiter is for the [cut](https://man7.org/linux/man-pages/man1/cut.1.html) command is, for example.
 
 What it also demonstrated was that taking the JSON output approach was preferable. Initially, as I described in that post, the prospect was a little daunting, as the structure represented in JSON consisted of nested arrays of objects. But a little digging into the [jq manual](https://stedolan.github.io/jq/manual/) showed me functions that would help out.
 
@@ -390,7 +392,7 @@ recurse
 
 Using the `select` function we can filter the objects down to only those that have a property pointing to a parent, i.e. either a `parentGuid` or `parentGUID` property, using the optional operator `?`.
 
-> I've connected with the lovely BTP Accounts Service API team asking them about this property name discrepancy and will update this post when I find out more.
+> I've connected with the lovely BTP Accounts Service API team asking them about this property name discrepancy for parent GUIDs and have asked them to consider addressing it.
 
 #### Step 4 - Narrow down to what we're looking for
 
@@ -533,6 +535,7 @@ And talking of `jq` scripts, I'm sure there are other ways of pulling out the in
 ---
 
 <a name="where-i-write-my-posts"></a>
+
 ## Where I write my posts
 
 Here's a short section to provide context on where my Autodidactics blog fits in. I write here on the SAP Community, but I have blogs elsewhere that I publish on too:
