@@ -1,4 +1,3 @@
-require('dotenv').config()
 const cds = require('@sap/cds')
 const cors = require('cors')
 const proxy = require('@sap/cds-odata-v2-adapter-proxy')
@@ -12,6 +11,7 @@ cds.on('bootstrap', app => {
 })
 
 if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
     const cds_swagger = require('cds-swagger-ui-express')
     cds.on('bootstrap', app => app.use(cds_swagger()))
 }
