@@ -1,6 +1,6 @@
 # SAP Fiori Tools
 
-This code builds on top of an existing CAP project from [another demo](../cap)]. In addition to the original project, this directory contains [a customized web application](./app/personal-lr) that uses an SAP Fiori elements List Report Object Page floorplan. This implementation was completed using the SAP Fiori tools to build extensions with the [flexible programming model for SAP Fiori elements apps](https://blogs.sap.com/2021/08/19/leverage-the-flexible-programming-model-to-extend-your-sap-fiori-elements-apps-for-odata-v4/).
+This code builds on top of an existing CAP project from [another demo](../cap). In addition to the original project, this directory contains [a customized web application](./app/personal-lr) that uses an SAP Fiori elements List Report Object Page floorplan. This implementation was completed using the SAP Fiori tools to build extensions with the [flexible programming model for SAP Fiori elements apps](https://blogs.sap.com/2021/08/19/leverage-the-flexible-programming-model-to-extend-your-sap-fiori-elements-apps-for-odata-v4/).
 
 
 # Customizations
