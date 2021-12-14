@@ -2,6 +2,10 @@
 
 Often in SAP Cloud Application Programming Model samples and other content, we focus on the ability to model and create OData services. However CAP also has some amazing functionality to help with the consumption of services from other systems. Or to create a mashup of local data and remote data fetched via a service call. This demo portion of the SAP TechEd 2021 Developer Keynote will focus on exactly those aspects of the SAP Cloud Application Programming Model.
 
+[Original Demo in Developer Keynote](https://www.youtube.com/watch?v=kOFuwDSXBZg&t=1663s)
+
+[Extended "Director's Cut" with behind the scenes and new experimental content](https://www.youtube.com/watch?v=rWQFbXFEr1M)
+
 ## Importing the External Service Definition
 
 First we need to find the details of the external API we want to call. In this demo scenario we want to consume a SuccessFactors Personal Information and then add one of our own fields to the new service which we will persist locally in our CAP application.
