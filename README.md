@@ -1,5 +1,7 @@
 # SAP TechEd 2021 Developer Keynote - Improving Developers' Lives
 
+[![REUSE status](https://api.reuse.software/badge/github.com/sap-samples/teched2021-developer-keynote)](https://api.reuse.software/info/github.com/sap-samples/teched2021-developer-keynote)
+
 ## Description
 
 Join the SAP Developer Advocates and friends as they highlight SAP technologies with a clear focus on features that accelerate the development process, improve the developer experience and increases developer productivity and efficiency when developing end to end solutions or extending existing applications.  Several aspects of application development will be represented including: AI/ML, ABAP, CAP, Data & Analytics, Low-Code/No-Code.
