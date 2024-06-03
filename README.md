@@ -1,3 +1,5 @@
+[![Not Maintained](https://img.shields.io/badge/Maintenance%20Level-Not%20Maintained-yellow.svg)](https://gist.github.com/cheerfulstoic/d107229326a01ff0f333a1d3476e068d)
+
 # SAP TechEd 2021 Developer Keynote - Improving Developers' Lives
 
 [![REUSE status](https://api.reuse.software/badge/github.com/sap-samples/teched2021-developer-keynote)](https://api.reuse.software/info/github.com/sap-samples/teched2021-developer-keynote)
